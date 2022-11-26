@@ -54,13 +54,13 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		924B2DF22932418500C4034E /* Home */ = {
+		924B2DF22932418500C4034E /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				92A84F4629313A4900EF895A /* RootViewController.swift */,
 				924B2DF8293247DD00C4034E /* RootView.xib */,
 			);
-			path = Home;
+			path = Root;
 			sourceTree = "<group>";
 		};
 		924B2DF3293241AC00C4034E /* Managers */ = {
@@ -78,22 +78,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		924B2DF5293241D400C4034E /* Windows */ = {
+		924B2DF5293241D400C4034E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				924B2DF6293241FA00C4034E /* Transfers */,
-				924B2DF22932418500C4034E /* Home */,
+				924B2DF6293241FA00C4034E /* Home */,
+				924B2DF22932418500C4034E /* Root */,
 			);
-			path = Windows;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
-		924B2DF6293241FA00C4034E /* Transfers */ = {
+		924B2DF6293241FA00C4034E /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				924B2DE929323AA500C4034E /* TransfersViewController.swift */,
 				924B2DEA29323AA500C4034E /* TransfersView.xib */,
 			);
-			path = Transfers;
+			path = Home;
 			sourceTree = "<group>";
 		};
 		924B2DF72932424800C4034E /* Classes */ = {
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				924B2DF72932424800C4034E /* Classes */,
-				924B2DF5293241D400C4034E /* Windows */,
+				924B2DF5293241D400C4034E /* Scenes */,
 				924B2DF4293241BC00C4034E /* Helpers */,
 				924B2DF3293241AC00C4034E /* Managers */,
 				924B2DF12932416900C4034E /* Main */,
