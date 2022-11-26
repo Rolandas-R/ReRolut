@@ -66,6 +66,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                <connections>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ad-4V-PwX"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -90,6 +93,13 @@
                             <constraint firstItem="7y4-1k-IfC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="pkG-hu-Yd1"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="enterPasswordTextField" destination="P5R-4h-f4F" id="woc-0G-IJR"/>
+                        <outlet property="enterUsernameTextField" destination="zkA-IW-Mfw" id="dS0-XE-2yc"/>
+                        <outlet property="imageViewPersonLogo" destination="wPI-9y-47r" id="TRT-mh-NMS"/>
+                        <outlet property="loginButton" destination="Ntz-TY-K3X" id="w3f-Cr-Xvp"/>
+                        <outlet property="retypePasswordTextField" destination="7y4-1k-IfC" id="Viw-V6-nro"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
