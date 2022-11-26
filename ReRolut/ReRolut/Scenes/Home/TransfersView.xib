@@ -10,6 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TransfersViewController" customModule="ReRolut" customModuleProvider="target">
             <connections>
+                <outlet property="dollarLogo" destination="evg-fq-tk9" id="Gwf-v3-uvs"/>
+                <outlet property="enteringAmountTextField" destination="0cY-gG-aDp" id="xa6-Ug-5tm"/>
+                <outlet property="personLogo" destination="kjE-W0-KIG" id="kuN-iC-KQF"/>
+                <outlet property="transferToUserTextField" destination="jLs-e3-xcQ" id="KfS-nj-bcM"/>
+                <outlet property="userGreetingAndInfoLabel" destination="Gcb-ce-Mja" id="fAc-pz-tIQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -51,7 +56,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="evg-fq-tk9">
-                    <rect key="frame" x="15" y="280" width="75" height="58.666666666666686"/>
+                    <rect key="frame" x="15" y="279.33333333333331" width="75" height="58.666666666666686"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="RWq-18-g9h"/>
                     </constraints>

@@ -12,7 +12,6 @@
             <connections>
                 <outlet property="enterPasswordTextField" destination="OHu-0c-Q1n" id="fSh-Tq-zkn"/>
                 <outlet property="enterUsernameTextField" destination="8cL-ng-IAl" id="5bG-uO-Nvy"/>
-                <outlet property="imageViewPersonLogo" destination="5of-Kj-LaJ" id="g9d-dS-F9d"/>
                 <outlet property="loginButton" destination="rp9-LX-FqK" id="ufX-qD-acB"/>
                 <outlet property="retypePasswordTextField" destination="Fvg-n3-ETO" id="a2a-ZY-Slk"/>
                 <outlet property="userLoginSegmentedController" destination="rxz-mP-TQX" id="z8e-Tg-4fx"/>

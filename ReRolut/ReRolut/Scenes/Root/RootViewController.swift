@@ -19,7 +19,7 @@ class RootViewController: UIViewController {
         case login
     }
     
-    @IBOutlet private weak var imageViewPersonLogo: UIImageView!
+
     
     @IBOutlet private weak var userLoginSegmentedController: UISegmentedControl!
     
@@ -82,6 +82,7 @@ class RootViewController: UIViewController {
         // navigation viewControleris ir perejimas i kita VC
         let transfersViewController = TransfersViewController()
         navigationController?.pushViewController(transfersViewController, animated: true)
+         
     }
     
     

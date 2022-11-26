@@ -8,7 +8,19 @@
 import UIKit
 
 class TransfersViewController: UIViewController {
-
+    
+    @IBOutlet weak var userGreetingAndInfoLabel: UILabel!
+    
+    @IBOutlet weak var enteringAmountTextField: UITextField!
+    
+    @IBOutlet weak var transferToUserTextField: UITextField!
+    
+    @IBOutlet weak var dollarLogo: UIImageView!
+    
+    @IBOutlet weak var personLogo: UIImageView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
