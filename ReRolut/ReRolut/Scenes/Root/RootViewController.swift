@@ -19,7 +19,7 @@ class RootViewController: UIViewController {
         case login
     }
     
-
+    
     
     @IBOutlet private weak var userLoginSegmentedController: UISegmentedControl!
     
@@ -33,12 +33,17 @@ class RootViewController: UIViewController {
     
     var currentSegment: Segment = .register
     //TODO: sukurus klases reikes atkomentuoti ir implementuoti userio patikrinimo ir perdavimo logika
-//    let userManager = UserManager()
-
+    //    let userManager = UserManager()
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //textfield delegatai, bandymui dissmisinti klaviatura
+        enterUsernameTextField.delegate = self
+        enterPasswordTextField.delegate = self
+        retypePasswordTextField.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -64,12 +69,12 @@ class RootViewController: UIViewController {
             loginButton.setTitle("LOGIN", for: .normal)
             
             
-        //patikrinimas kuris segmentas pasirinktas (nebutinas)
-        print(userLoginSegmentedController.selectedSegmentIndex)
+            //patikrinimas kuris segmentas pasirinktas (nebutinas)
+            print(userLoginSegmentedController.selectedSegmentIndex)
         }
-
+        
     }
-
+    
     /* mygtuko paspaudimas - atliekamos f-jos:
      */
     
@@ -82,10 +87,16 @@ class RootViewController: UIViewController {
         // navigation viewControleris ir perejimas i kita VC
         let transfersViewController = TransfersViewController()
         navigationController?.pushViewController(transfersViewController, animated: true)
-         
+        
     }
     
-    
-    
 }
+    // extensionas, kad butu galima dissmissinti keyboard (1-as budas)
+extension UIViewController: UITextFieldDelegate {
+        public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+    }
+
 

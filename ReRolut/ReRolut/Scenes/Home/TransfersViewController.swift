@@ -28,6 +28,13 @@ class TransfersViewController: UIViewController {
     }
 
 
+    // 2 budas dissmisint keyboarda paspaudus return
+    @IBAction func textFieldInputEntered(_ sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    
+    
     /*
     // MARK: - Navigation
 
