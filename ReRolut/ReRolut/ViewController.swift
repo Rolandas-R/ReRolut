@@ -11,6 +11,8 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var imageViewPersonLogo: UIImageView!
     
+    @IBOutlet weak var userLoginSegmentedController: UISegmentedControl!
+    
     @IBOutlet private weak var enterUsernameTextField: UITextField!
     
     @IBOutlet private weak var enterPasswordTextField: UITextField!
@@ -25,7 +27,16 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func userLoginSegmentedControllerStateChanged(_ sender: Any) {
+        
+        //patikrinimas kuris segmentas pasirinktas
+        print(userLoginSegmentedController.selectedSegmentIndex)
+    }
+    
     @IBAction func loginButtonTapped(_ sender: Any) {
+        
+        //patikrinimas ar veikia duomenu ivedimas
         print(enterUsernameTextField.text!)
         print(enterPasswordTextField.text!)
     }

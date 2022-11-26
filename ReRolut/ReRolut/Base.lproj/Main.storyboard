@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-9y-47r">
-                                <rect key="frame" x="174" y="225.66666666666666" width="45" height="52.333333333333343"/>
+                                <rect key="frame" x="174" y="295.66666666666669" width="45" height="52.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="EGP-uH-mbW"/>
                                     <constraint firstAttribute="height" constant="55" id="Npf-62-NT4"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Username" borderStyle="line" placeholder="Enter Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkA-IW-Mfw">
-                                <rect key="frame" x="15" y="349" width="363" height="40"/>
+                                <rect key="frame" x="15" y="409" width="363" height="40"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LPP-UT-Etj"/>
@@ -40,7 +40,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Password" borderStyle="line" placeholder="Enter Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5R-4h-f4F">
-                                <rect key="frame" x="15" y="419" width="363" height="40"/>
+                                <rect key="frame" x="15" y="469" width="363" height="40"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cze-j6-aUz"/>
@@ -49,18 +49,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Retype Password" borderStyle="line" placeholder="Retype Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7y4-1k-IfC">
-                                <rect key="frame" x="15" y="489" width="363" height="40"/>
-                                <color key="tintColor" systemColor="linkColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="qEm-f7-ITt"/>
-                                </constraints>
-                                <color key="textColor" systemColor="systemGray2Color"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntz-TY-K3X">
-                                <rect key="frame" x="120" y="609" width="153" height="50"/>
+                                <rect key="frame" x="120" y="649" width="153" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7Ls-yN-3K7"/>
                                 </constraints>
@@ -70,27 +60,55 @@
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7Ad-4V-PwX"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="G4t-kA-Js7">
+                                <rect key="frame" x="80" y="359" width="233" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Kro-ov-wCE"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Register"/>
+                                    <segment title="Login"/>
+                                </segments>
+                                <connections>
+                                    <action selector="userLoginSegmentedControllerStateChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="8gH-VA-ecQ"/>
+                                </connections>
+                            </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Retype Password" borderStyle="line" placeholder="Retype Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7y4-1k-IfC">
+                                <rect key="frame" x="15" y="529" width="363" height="40"/>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="qEm-f7-ITt"/>
+                                </constraints>
+                                <color key="textColor" systemColor="systemGray2Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="zkA-IW-Mfw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7Ug-r2-zff"/>
                             <constraint firstItem="doM-EE-7p5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="140" id="BUi-JU-rPi"/>
-                            <constraint firstItem="P5R-4h-f4F" firstAttribute="top" secondItem="zkA-IW-Mfw" secondAttribute="bottom" constant="30" id="Cgr-dq-e04"/>
                             <constraint firstItem="Ntz-TY-K3X" firstAttribute="top" secondItem="7y4-1k-IfC" secondAttribute="bottom" constant="80" id="Fnl-QS-NRd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zkA-IW-Mfw" secondAttribute="trailing" constant="15" id="GKo-E4-X1V"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7y4-1k-IfC" secondAttribute="trailing" constant="15" id="Lr7-ui-vUt"/>
-                            <constraint firstItem="zkA-IW-Mfw" firstAttribute="top" secondItem="wPI-9y-47r" secondAttribute="bottom" constant="70" id="MNS-DJ-W8o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="doM-EE-7p5" secondAttribute="trailing" constant="140" id="PqT-TH-1HS"/>
                             <constraint firstItem="wPI-9y-47r" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="RwU-jE-b5r"/>
                             <constraint firstItem="Ntz-TY-K3X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="120" id="SNm-c7-4z7"/>
                             <constraint firstItem="doM-EE-7p5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="TzB-kc-ysj"/>
+                            <constraint firstItem="7y4-1k-IfC" firstAttribute="top" secondItem="P5R-4h-f4F" secondAttribute="bottom" constant="20" id="afK-Cm-3vE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Ntz-TY-K3X" secondAttribute="trailing" constant="120" id="cEp-f6-dVJ"/>
-                            <constraint firstItem="wPI-9y-47r" firstAttribute="top" secondItem="doM-EE-7p5" secondAttribute="bottom" constant="30" id="esu-fD-5wh"/>
+                            <constraint firstItem="G4t-kA-Js7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="80" id="dSg-YO-GKe"/>
+                            <constraint firstItem="wPI-9y-47r" firstAttribute="top" secondItem="doM-EE-7p5" secondAttribute="bottom" constant="100" id="esu-fD-5wh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P5R-4h-f4F" secondAttribute="trailing" constant="15" id="fwz-D5-Ys7"/>
-                            <constraint firstItem="7y4-1k-IfC" firstAttribute="top" secondItem="P5R-4h-f4F" secondAttribute="bottom" constant="30" id="nTU-YJ-Its"/>
+                            <constraint firstItem="zkA-IW-Mfw" firstAttribute="top" secondItem="G4t-kA-Js7" secondAttribute="bottom" constant="20" id="nIs-aX-i77"/>
                             <constraint firstItem="P5R-4h-f4F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="orJ-PK-FPV"/>
+                            <constraint firstItem="G4t-kA-Js7" firstAttribute="top" secondItem="wPI-9y-47r" secondAttribute="bottom" constant="10" id="pFX-tc-Bkf"/>
                             <constraint firstItem="7y4-1k-IfC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="pkG-hu-Yd1"/>
+                            <constraint firstItem="7y4-1k-IfC" firstAttribute="top" secondItem="P5R-4h-f4F" secondAttribute="bottom" constant="20" id="q3j-MA-tqv"/>
+                            <constraint firstItem="zkA-IW-Mfw" firstAttribute="top" secondItem="G4t-kA-Js7" secondAttribute="bottom" constant="20" id="u8d-uq-Tys"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G4t-kA-Js7" secondAttribute="trailing" constant="80" id="yWY-7x-yhe"/>
+                            <constraint firstItem="P5R-4h-f4F" firstAttribute="top" secondItem="zkA-IW-Mfw" secondAttribute="bottom" constant="20" id="zzt-uQ-bdK"/>
                         </constraints>
                     </view>
                     <connections>
@@ -99,6 +117,7 @@
                         <outlet property="imageViewPersonLogo" destination="wPI-9y-47r" id="TRT-mh-NMS"/>
                         <outlet property="loginButton" destination="Ntz-TY-K3X" id="w3f-Cr-Xvp"/>
                         <outlet property="retypePasswordTextField" destination="7y4-1k-IfC" id="Viw-V6-nro"/>
+                        <outlet property="userLoginSegmentedController" destination="G4t-kA-Js7" id="pXu-Dd-VNQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
