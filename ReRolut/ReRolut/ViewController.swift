@@ -32,6 +32,9 @@ class ViewController: UIViewController {
     @IBOutlet private weak var loginButton: UIButton!
     
     var currentSegment: Segment = .register
+    //TODO: sukurus klases reikes atkomentuoti ir implementuoti userio patikrinimo ir perdavimo logika
+//    let userManager = UserManager()
+
     
     
     override func viewDidLoad() {
@@ -75,6 +78,10 @@ class ViewController: UIViewController {
         //patikrinimas ar veikia duomenu ivedimas (nebutinas)
         print(enterUsernameTextField.text!)
         print(enterPasswordTextField.text!)
+        
+        // navigation viewControleris ir perejimas i kita VC
+        let transfersViewController = TransfersViewController()
+        navigationController?.pushViewController(transfersViewController, animated: true)
     }
     
     

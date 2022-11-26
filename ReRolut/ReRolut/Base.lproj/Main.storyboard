@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Stf-U2-NBK">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -17,20 +17,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wPI-9y-47r">
-                                <rect key="frame" x="174" y="265.66666666666669" width="45" height="52.333333333333314"/>
+                                <rect key="frame" x="174" y="309.66666666666669" width="45" height="52.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="EGP-uH-mbW"/>
                                     <constraint firstAttribute="height" constant="55" id="Npf-62-NT4"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="applelogo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="doM-EE-7p5">
-                                <rect key="frame" x="140" y="74.333333333333343" width="113" height="118.33333333333331"/>
+                                <rect key="frame" x="140" y="118.33333333333334" width="113" height="118.33333333333331"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="A5D-BN-KAh"/>
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Username" borderStyle="line" placeholder="Enter Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkA-IW-Mfw">
-                                <rect key="frame" x="15" y="379" width="363" height="40"/>
+                                <rect key="frame" x="15" y="423" width="363" height="40"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="LPP-UT-Etj"/>
@@ -40,7 +40,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Password" borderStyle="line" placeholder="Enter Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P5R-4h-f4F">
-                                <rect key="frame" x="15" y="439" width="363" height="40"/>
+                                <rect key="frame" x="15" y="483" width="363" height="40"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cze-j6-aUz"/>
@@ -50,7 +50,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ntz-TY-K3X">
-                                <rect key="frame" x="120" y="579" width="153" height="50"/>
+                                <rect key="frame" x="120" y="623" width="153" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="7Ls-yN-3K7"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="G4t-kA-Js7">
-                                <rect key="frame" x="60" y="329" width="273" height="31"/>
+                                <rect key="frame" x="60" y="373" width="273" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Kro-ov-wCE"/>
                                 </constraints>
@@ -74,7 +74,7 @@
                                 </connections>
                             </segmentedControl>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Retype Password" borderStyle="line" placeholder="Retype Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7y4-1k-IfC">
-                                <rect key="frame" x="15" y="499" width="363" height="40"/>
+                                <rect key="frame" x="15" y="543" width="363" height="40"/>
                                 <color key="tintColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="qEm-f7-ITt"/>
@@ -111,6 +111,7 @@
                             <constraint firstItem="P5R-4h-f4F" firstAttribute="top" secondItem="zkA-IW-Mfw" secondAttribute="bottom" constant="20" id="zzt-uQ-bdK"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="yCP-GM-xS6"/>
                     <connections>
                         <outlet property="enterPasswordTextField" destination="P5R-4h-f4F" id="woc-0G-IJR"/>
                         <outlet property="enterUsernameTextField" destination="zkA-IW-Mfw" id="dS0-XE-2yc"/>
@@ -121,6 +122,24 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057.2519083969464" y="-27.464788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hs0-5B-mGo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Stf-U2-NBK" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="jiy-Wq-aui">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="mNf-si-bcr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4lg-LF-zQd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
         </scene>
