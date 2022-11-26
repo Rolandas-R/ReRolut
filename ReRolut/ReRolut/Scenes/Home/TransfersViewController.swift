@@ -29,7 +29,8 @@ class TransfersViewController: UIViewController {
 
 
     // 2 budas dissmisint keyboarda paspaudus return
-    @IBAction func textFieldInputEntered(_ sender: UITextField) {
+
+    @IBAction func textFielEditingDone(_ sender: UITextField) {
         sender.resignFirstResponder()
     }
     

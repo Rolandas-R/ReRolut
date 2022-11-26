@@ -56,7 +56,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollarsign.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="evg-fq-tk9">
-                    <rect key="frame" x="15" y="279.33333333333331" width="75" height="58.666666666666686"/>
+                    <rect key="frame" x="15" y="280" width="75" height="58.666666666666686"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="RWq-18-g9h"/>
                     </constraints>
@@ -68,6 +68,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                    <connections>
+                        <action selector="textFielEditingDone:" destination="-1" eventType="primaryActionTriggered" id="WW2-U2-Sts"/>
+                    </connections>
                 </textField>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-W0-KIG">
                     <rect key="frame" x="15" y="348" width="75" height="58.666666666666686"/>
