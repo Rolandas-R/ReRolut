@@ -19,10 +19,12 @@ class TransfersViewController: UIViewController {
     
     @IBOutlet weak var personLogo: UIImageView!
     
-    
+    var passtxt: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        userGreetingAndInfoLabel.text = passtxt
+        
 
         // Do any additional setup after loading the view.
     }

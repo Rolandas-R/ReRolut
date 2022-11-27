@@ -28,14 +28,17 @@ class RootViewController: UIViewController {
     
     @IBOutlet private weak var loginButton: UIButton!
     
-    var currentSegment: Segment = .register
+
     
+    var currentSegment: Segment = .register
     let userManager = UserManager()
+
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         
         
         // textfieldu remeliu spalvos ir stroio keitimas:
@@ -119,19 +122,23 @@ class RootViewController: UIViewController {
         if let errorTitle = createdUser.errorTitle,
            let mistakeDescription = createdUser.mistakeDescription {
             showError(title: errorTitle, message: mistakeDescription)
-            print("eroro")
+            print("el erroro")
         } else {
             if createdUser.user != nil {
                 // navigation viewControleris ir perejimas i kita VC
                 let transfersViewController = TransfersViewController()
                 navigationController?.pushViewController(transfersViewController, animated: true)
+                
+                //bandymas perduoti duomenis i TransfersVC pasveikinimo lauka per passtxt kintamaji
+                // MARK: reikes perdayrti su delegatu? o ir skaitosi kazkaip ne negraziai
+                transfersViewController.passtxt = "Hello \(createdUser.user!.username!), money amount that you have: \(createdUser.user!.moneyAmount!)"
                 print("OK")
             }
         }
         
     }
     /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
-     TODO: perziureti ir pakeisti sita laerta, kad jis butu imamas is UIAlertController klases */
+     TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
     
     private func showError(title: String, message: String) {
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)

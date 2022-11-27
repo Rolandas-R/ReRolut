@@ -16,23 +16,34 @@ struct CreatedUser {
 class UserManager {
     
     var users: [User] = []
+    var initialAmount: Double = 100.0
 
 
 // vartotojo registravimo f- ja. grazina UserResult struct'a
     func register(username: String, password: String, retypePassword: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
         
-        // guardas padeda patikrinti ar ivestas slaptazodis ir passwordas i tekstini lauka
-        guard !username.isEmpty, !password.isEmpty
+        // guardas padeda patikrinti ar ivestas slaptazodis ir passwordas i tekstini lauka,
         // tikrinimo logika: jei kazkas neivesta ar nesutampa - useris nesukuriamas ir isvedamas klaidos pranesimas
-        else {
+        guard !username.isEmpty, !password.isEmpty
+                
+       else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Fill username and/or password")
         }
+        
+        // antras guardas, kurio pagalba uztikriname kad username ir passwordas turetu bent 8 simbolius:
+        guard username.count > 7, password.count > 7
+                
+        else {
+            return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")
+        }
+        
+        //patikrinimas ar registruojantis passwordo pakartojimas sutampa su passwordu
         if password != retypePassword {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Your password didn't match")
         }
         
-        // pereinama ir patikrinamas userListas
+        // pereinama ir patikrinamas useriu sarasas
         for user in users {
             if username == user.username {
                 return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "User with same username already exists")
@@ -40,10 +51,11 @@ class UserManager {
         }
         
         // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie userListo
-        let user = User(username: username, password: password, moneyAmount: 100.0)
+        let user = User(username: username, password: password, moneyAmount: initialAmount)
         
         users.append(user)
-        // perduodama UserResult structui
+        
+        // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
     }
     
@@ -53,25 +65,31 @@ class UserManager {
         let loginErrorTitle = "Error while loging in"
         /*
          //vienas is variantu su closure:
-         let userOptional = userList.first { user in
-                     user.username == username
-                 }
-         // dar variantas kaip paduodam funkcija vietoj closure:
-        //        let userOptional = userList.first(where: arPetras)
-         
-         //MARK: cia panaudotas antras variantas (CLOSURE) */
+         let checkedUser = users.first { user in
+                     user.username == username }
+         //MARK: cia panaudotas antras CLOSURE variantas is CodeAcademyChat */
         let checkedUser = users.first(where: { $0.username == username })
 
-        // guardas patikrina ir toliau praleidzia (arba ne), atsizvelgiant ar sutampa pateikti userio duomenys
-        guard let user = checkedUser else {
+        // sitas guardas patikrina ir toliau praleidzia (arba ne), atsizvelgiant ar sutampa pateikti userio duomenys
+        guard let user = checkedUser
+        else {
             return CreatedUser(user: nil, errorTitle: loginErrorTitle, mistakeDescription: "No such user with this username")
         }
         
         if user.password != password {
             return CreatedUser(user: nil, errorTitle: loginErrorTitle, mistakeDescription: "Wrong password")
         }
+        
+        //jei po auksciau atliktu patikrinimu viskas tvarkoje grazinamas CreatedUser
         return CreatedUser(user: user, errorTitle: loginErrorTitle, mistakeDescription: nil)
     }
     
 }
 
+
+// is quizo - userio kurimas per delegata. MARK: reikes implementuoti, nes man nerodo labelis pasveikinimo, nes neturiu segue'o
+//extension UserManager: NewGameViewDelegate {
+//    func createNewUser(username: String) -> User {
+//        let user = User(username: username)
+//        self.users.append(user)
+//        return user
