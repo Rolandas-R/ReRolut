@@ -66,7 +66,9 @@ class TransfersViewController: UIViewController {
             print("el erroro")
         } else {
             if transferUser.user != nil {
+                // pasitikrinimas ir placeholderis kad funkcija veiktu
                 print("OK")
+                print("\(transferUser.user?.username) and money amount \(transferUser.user?.moneyAmount)")
             }
         }
     }

@@ -55,6 +55,7 @@ class UserManager {
         let user = User(username: username, password: password, moneyAmount: initialAmount)
         
         users.append(user)
+        //pasitikrinimas (nebutinas)
         dump(users)
         
         // perduodama CreatedUser structui
@@ -93,7 +94,7 @@ class UserManager {
         for user in users where username != user.username {
             return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
         }
-        let user = User(username: username, password: "", moneyAmount: 0.0 )
+        let user = User(username: username, password: "", moneyAmount: initialAmount )
         return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
         
     }
