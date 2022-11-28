@@ -19,6 +19,8 @@ class TransfersViewController: UIViewController {
     
     @IBOutlet weak var personLogo: UIImageView!
     
+    @IBOutlet weak var logOutButon: UIButton!
+    
     var passtxt: String?
     
     override func viewDidLoad() {
@@ -31,13 +33,25 @@ class TransfersViewController: UIViewController {
         enteringAmountTextField.layer.borderWidth = 2.0
         transferToUserTextField.layer.borderWidth = 2.0
         
-        self.navigationController?.navigationItem.hidesBackButton = true
+        self.navigationController?.isNavigationBarHidden = true
         
 
         // Do any additional setup after loading the view.
     }
+    
+    
 
-
+    @IBAction private func logOutButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    
+    @IBAction private func transferButtonTapped(_ sender: Any) {
+    }
+    
+    
+    
 //    // 2 budas dissmisint keyboarda paspaudus return
 //    @IBAction func textFielEditingDone(_ sender: UITextField) {
 //        sender.resignFirstResponder()

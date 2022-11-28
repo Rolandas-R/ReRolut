@@ -5,7 +5,6 @@
 //  Created by reromac on 2022-11-25.
 //
 
-// TODO: - pakeisti logo paveiksliuka i ReRolut
 
 
 import UIKit
@@ -43,9 +42,8 @@ class RootViewController: UIViewController {
         // segmentedController raidziu spalvos keitimas is juodos i balta ir melyna
         userLoginSegmentedController.setTitleColor(UIColor.white)
 
-        
-        
-        // textfieldu remeliu spalvos ir stroio keitimas (MARK: paziureti ar galima kazkaip per UITextField extensions padaryti
+
+        // textfieldu remeliu spalvos ir storio keitimas (TODO: paziureti ar galima kazkaip per UITextField extensions padaryti)
         let myColor = UIColor.systemBlue
         enterUsernameTextField.layer.borderColor = myColor.cgColor
         enterPasswordTextField.layer.borderColor = myColor.cgColor
@@ -111,16 +109,12 @@ class RootViewController: UIViewController {
                                                      retypePassword: retypePasswordTextField.text ?? "")
             checkUser(from: initialResult)
             
-            
         case .login:
             let initialResult = userManager.login(username: enterUsernameTextField.text ?? "",
                                                   password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
-            
         }
-        
-        
-        
+           
     }
     
     private func checkUser(from createdUser: CreatedUser) {
@@ -135,7 +129,7 @@ class RootViewController: UIViewController {
                 navigationController?.pushViewController(transfersViewController, animated: true)
                 
                 //bandymas perduoti duomenis i TransfersVC pasveikinimo lauka per passtxt kintamaji
-                // MARK: reikes perdayrti su delegatu? o ir skaitosi kazkaip ne negraziai
+                // MARK: reikes perdaryti su delegatu? o ir skaitosi kazkaip ne negraziai
                 transfersViewController.passtxt = "Hello \(createdUser.user!.username!), money amount that you have: \(createdUser.user!.moneyAmount!)"
                 print("OK")
             }
@@ -156,7 +150,7 @@ class RootViewController: UIViewController {
 }
 
 
-// extensionas segmentedContollerio su f-ja raidziu spalvos keitimui
+// extensionas segmentedContollerio su raidziu spalvos keitimo funkcija
 
 extension UISegmentedControl {
 

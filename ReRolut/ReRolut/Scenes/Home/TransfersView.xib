@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="dollarLogo" destination="evg-fq-tk9" id="Gwf-v3-uvs"/>
                 <outlet property="enteringAmountTextField" destination="0cY-gG-aDp" id="xa6-Ug-5tm"/>
+                <outlet property="logOutButon" destination="igp-s0-MJ2" id="Wf4-bT-bgn"/>
                 <outlet property="personLogo" destination="kjE-W0-KIG" id="kuN-iC-KQF"/>
                 <outlet property="transferToUserTextField" destination="jLs-e3-xcQ" id="KfS-nj-bcM"/>
                 <outlet property="userGreetingAndInfoLabel" destination="Gcb-ce-Mja" id="fAc-pz-tIQ"/>
@@ -84,12 +85,23 @@
                         <constraint firstAttribute="width" constant="120" id="gB2-p8-RJH"/>
                     </constraints>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="filled" title="TRANSFER"/>
+                    <buttonConfiguration key="configuration" style="filled" title="TRANSFER">
+                        <backgroundConfiguration key="background" cornerRadius="22"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="transferButtonTapped:" destination="-1" eventType="touchUpInside" id="bW4-cG-XKA"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igp-s0-MJ2">
-                    <rect key="frame" x="143" y="554" width="120" height="35"/>
+                    <rect key="frame" x="143" y="554" width="120" height="35.666666666666629"/>
                     <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Log Out"/>
+                    <buttonConfiguration key="configuration" style="plain" title="Log Out">
+                        <fontDescription key="titleFontDescription" type="boldSystem" pointSize="18"/>
+                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                    </buttonConfiguration>
+                    <connections>
+                        <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="VW1-Sd-whs"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -135,6 +147,9 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
