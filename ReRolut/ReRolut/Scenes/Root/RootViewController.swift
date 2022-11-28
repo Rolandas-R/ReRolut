@@ -130,7 +130,7 @@ class RootViewController: UIViewController {
                 
                 //bandymas perduoti duomenis i TransfersVC pasveikinimo lauka per passtxt kintamaji
                 // MARK: reikes perdaryti su delegatu? o ir skaitosi kazkaip ne negraziai
-                transfersViewController.passtxt = "Hello \(createdUser.user!.username!), money amount that you have: \(createdUser.user!.moneyAmount!)"
+                transfersViewController.passtxt = "Hello \(createdUser.user!.username), money amount that you have: \(createdUser.user!.moneyAmount)"
                 print("OK")
             }
         }
@@ -139,7 +139,7 @@ class RootViewController: UIViewController {
     /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
      TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
     
-    private func showError(title: String, message: String) {
+   private func showError(title: String, message: String) {
         let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(alertAction)
