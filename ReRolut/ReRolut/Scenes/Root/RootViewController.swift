@@ -32,16 +32,20 @@ class RootViewController: UIViewController {
     
     var currentSegment: Segment = .register
     let userManager = UserManager()
+    
 
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // segmentedController raidziu spalvos keitimas is juodos i balta ir melyna
+        userLoginSegmentedController.setTitleColor(UIColor.white)
 
         
         
-        // textfieldu remeliu spalvos ir stroio keitimas:
+        // textfieldu remeliu spalvos ir stroio keitimas (MARK: paziureti ar galima kazkaip per UITextField extensions padaryti
         let myColor = UIColor.systemBlue
         enterUsernameTextField.layer.borderColor = myColor.cgColor
         enterPasswordTextField.layer.borderColor = myColor.cgColor
@@ -70,6 +74,7 @@ class RootViewController: UIViewController {
         
         /* jeigu pasirinktas segmentas yra .login tai passwordo retypinimo textfieldas nerodomas */
         retypePasswordTextField.isHidden = currentSegment != .register
+        
         
         
         // switchas kurio pagalba isvedamas uzrasas ant mygtuko:
@@ -148,6 +153,22 @@ class RootViewController: UIViewController {
     }
     
     
+}
+
+
+// extensionas segmentedContollerio su f-ja raidziu spalvos keitimui
+
+extension UISegmentedControl {
+
+    func setTitleColor(_ color: UIColor, state: UIControl.State = .normal) {
+        var attributes = self.titleTextAttributes(for: .selected) ?? [:]
+        var attributes2 = self.titleTextAttributes(for: .normal) ?? [:]
+        attributes[.foregroundColor] = UIColor.white
+        attributes2[.foregroundColor] = UIColor.systemBlue
+        self.setTitleTextAttributes(attributes, for: .selected)
+        self.setTitleTextAttributes(attributes2, for: .normal)
+    }
+
 }
 
 

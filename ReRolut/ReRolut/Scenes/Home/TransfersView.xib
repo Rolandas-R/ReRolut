@@ -23,10 +23,10 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple.logo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ave-cI-qX1">
-                    <rect key="frame" x="140" y="69.333333333333329" width="113" height="58.333333333333329"/>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rerolut_1 versija" translatesAutoresizingMaskIntoConstraints="NO" id="Ave-cI-qX1">
+                    <rect key="frame" x="140" y="69" width="123" height="92"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="G8M-PM-IOB"/>
+                        <constraint firstAttribute="height" constant="92" id="G8M-PM-IOB"/>
                     </constraints>
                 </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.line.dotted.person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="X22-dh-P1k">
@@ -70,9 +70,6 @@
                     <color key="textColor" systemColor="systemGrayColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                    <connections>
-                        <action selector="textFielEditingDone:" destination="-1" eventType="primaryActionTriggered" id="WW2-U2-Sts"/>
-                    </connections>
                 </textField>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kjE-W0-KIG">
                     <rect key="frame" x="15" y="383" width="75" height="58.666666666666686"/>
@@ -101,7 +98,7 @@
                 <constraint firstItem="0cY-gG-aDp" firstAttribute="leading" secondItem="evg-fq-tk9" secondAttribute="trailing" constant="10" id="3sK-be-DDv"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pFB-h4-EhY" secondAttribute="trailing" constant="130" id="4g6-tq-PHc"/>
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="leading" secondItem="evg-fq-tk9" secondAttribute="leading" id="7fZ-ag-a0n"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ave-cI-qX1" secondAttribute="trailing" constant="140" id="8D6-lk-fRL"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ave-cI-qX1" secondAttribute="trailing" constant="130" id="8D6-lk-fRL"/>
                 <constraint firstItem="igp-s0-MJ2" firstAttribute="trailing" secondItem="pFB-h4-EhY" secondAttribute="trailing" id="CUe-IZ-gkR"/>
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="trailing" secondItem="evg-fq-tk9" secondAttribute="trailing" id="F4O-fZ-jPG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0cY-gG-aDp" secondAttribute="trailing" constant="15" id="GZJ-2e-9HM"/>
@@ -116,7 +113,7 @@
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="centerY" secondItem="jLs-e3-xcQ" secondAttribute="centerY" constant="-2" id="W04-MR-3qc"/>
                 <constraint firstItem="igp-s0-MJ2" firstAttribute="centerX" secondItem="pFB-h4-EhY" secondAttribute="centerX" id="WBB-UK-rZj"/>
                 <constraint firstItem="Gcb-ce-Mja" firstAttribute="top" secondItem="X22-dh-P1k" secondAttribute="bottom" constant="5" id="egd-ap-Ge7"/>
-                <constraint firstItem="X22-dh-P1k" firstAttribute="top" secondItem="Ave-cI-qX1" secondAttribute="bottom" constant="40" id="gAZ-sS-Iqq"/>
+                <constraint firstItem="X22-dh-P1k" firstAttribute="top" secondItem="Ave-cI-qX1" secondAttribute="bottom" constant="8" id="gAZ-sS-Iqq"/>
                 <constraint firstItem="Ave-cI-qX1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="140" id="jJy-21-8HI"/>
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="top" secondItem="evg-fq-tk9" secondAttribute="bottom" constant="8" id="oqj-ps-sFz"/>
                 <constraint firstItem="jLs-e3-xcQ" firstAttribute="top" secondItem="0cY-gG-aDp" secondAttribute="bottom" constant="30" id="p0F-nz-cv8"/>
@@ -129,10 +126,10 @@
         </view>
     </objects>
     <resources>
-        <image name="apple.logo" catalog="system" width="105" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person.line.dotted.person.fill" catalog="system" width="128" height="58"/>
+        <image name="rerolut_1 versija" width="199" height="189"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

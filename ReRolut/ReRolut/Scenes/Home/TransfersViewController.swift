@@ -25,16 +25,23 @@ class TransfersViewController: UIViewController {
         super.viewDidLoad()
         userGreetingAndInfoLabel.text = passtxt
         
+        let myColor = UIColor.systemBlue
+        enteringAmountTextField.layer.borderColor = myColor.cgColor
+        transferToUserTextField.layer.borderColor = myColor.cgColor
+        enteringAmountTextField.layer.borderWidth = 2.0
+        transferToUserTextField.layer.borderWidth = 2.0
+        
+        self.navigationController?.navigationItem.hidesBackButton = true
+        
 
         // Do any additional setup after loading the view.
     }
 
 
-    // 2 budas dissmisint keyboarda paspaudus return
-
-    @IBAction func textFielEditingDone(_ sender: UITextField) {
-        sender.resignFirstResponder()
-    }
+//    // 2 budas dissmisint keyboarda paspaudus return
+//    @IBAction func textFielEditingDone(_ sender: UITextField) {
+//        sender.resignFirstResponder()
+//    }
     
     
     

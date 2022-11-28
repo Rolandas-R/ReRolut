@@ -19,7 +19,7 @@ class UserManager {
     var initialAmount: Double = 100.0
 
 
-// vartotojo registravimo f- ja. grazina UserResult struct'a
+// vartotojo registravimo f- ja. grazina CreatedUser struct'a
     func register(username: String, password: String, retypePassword: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
         
@@ -50,7 +50,7 @@ class UserManager {
             }
         }
         
-        // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie userListo
+        // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie users array'iaus
         let user = User(username: username, password: password, moneyAmount: initialAmount)
         
         users.append(user)
