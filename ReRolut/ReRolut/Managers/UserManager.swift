@@ -11,12 +11,22 @@ struct CreatedUser {
     let user: User?
     let errorTitle: String?
     let mistakeDescription: String?
+
+}
+
+struct ValidatedUser {
+    let user: User?
+    let errorTitle: String?
+    let mistakeDescription: String?
 }
 
 class UserManager {
     
     var users: [User] = []
     var initialAmount: Int = 100
+    
+
+    
     
     
     // vartotojo registravimo f- ja. grazina CreatedUser struct'a
@@ -32,13 +42,13 @@ class UserManager {
         }
         
         // antras guardas, kurio pagalba uztikriname kad username ir passwordas turetu bent 8 simbolius:
-//            MARK: @warning reikes 2 pakeisti i 7
+        //            MARK: @warning reikes 2 pakeisti i 7
         guard username.count > 2, password.count > 2
                 
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")
         }
-
+        
         // pereinama ir patikrinamas useriu sarasas
         for user in users {
             if username == user.username {
@@ -47,11 +57,14 @@ class UserManager {
         }
         
         // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie users array'iaus
-        let user = User(username: username, password: password, moneyAmount: 100)
+        let user = User(username: username, password: password, moneyAmount: initialAmount)
         
         users.append(user)
         //pasitikrinimas (nebutinas)
         dump(users)
+        for user in users {
+            print(user.username)
+        }
         
         // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
@@ -83,16 +96,37 @@ class UserManager {
     }
     
     
-    func checkUsersList(username: String) -> CreatedUser {
+    func checkUsersList(username: String) -> ValidatedUser {
         let userCheckingErrorTitle = "Error with user validation"
-        
-        for user in users where username != user.username {
-            return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
+
+        let scrutinizedUser = users.first(where: { $0.username == username })
+
+        guard let user = scrutinizedUser else {
+            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "aa")
         }
-        let user = User(username: username, password: "", moneyAmount: 0)
-        return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
-        
+//
+//        if user.username != username {
+//            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "bb")
+//        }
+        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+
+        }
+    let userOne = User(username: "111", password: "111", moneyAmount: 200)
+    users.append(userOne)
+    let userTwo = User(username: "222", password: "222", moneyAmount: 300)
+
     }
-        
-}
+
+
+    
+    
+//    for user in users {
+//        if username != user.username {
+//            break
+//        }
+//    }
+//    return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+//}
+//
+    
 

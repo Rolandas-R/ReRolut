@@ -30,7 +30,7 @@ class RootViewController: UIViewController {
 
     
     var currentSegment: Segment = .register
-    let userManager = UserManager()
+//    var userManager = UserManager()
     
 
     
@@ -84,6 +84,9 @@ class RootViewController: UIViewController {
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
         
+        let transfersViewController = TransfersViewController()
+        var userManager = transfersViewController.userManager
+        
         //patikrinimas ar veikia duomenu ivedimas (nebutinas)
         print(enterUsernameTextField.text!)
         print(enterPasswordTextField.text!)
@@ -124,6 +127,8 @@ class RootViewController: UIViewController {
             }
         }
         
+    
+        
     }
     /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
      MARK: senas variantas. Perdariau su UIALertControleriu */
@@ -134,7 +139,7 @@ class RootViewController: UIViewController {
 //        alertController.addAction(alertAction)
 //        self.present(alertController, animated: true)
 //    }
-    
+
     
     
 }

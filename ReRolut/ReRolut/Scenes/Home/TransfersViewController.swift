@@ -25,6 +25,7 @@ class TransfersViewController: UIViewController {
     
     let userManager = UserManager()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userGreetingAndInfoLabel.text = passtxt
@@ -51,28 +52,42 @@ class TransfersViewController: UIViewController {
     
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
-        let transferUser = userManager.checkUsersList(username: transferToUserTextField.text ?? "")
+        
+        
+//        let rootViewController = RootViewController()
+//        let userManager = rootViewController.userManager
+      
+        let transferUser = userManager.checkUsersList(username: transferToUserTextField.text!)
         checkUser(from: transferUser)
+
 //        let transferSum = userManager.
     }
         
 
     
     
-    func checkUser(from transferUser: CreatedUser) {
-        if let errorTitle = transferUser.errorTitle,
-           let mistakeDescription = transferUser.mistakeDescription {
-            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
-//            showError(title: errorTitle, message: mistakeDescription)
-            print("el erroro")
+    func checkUser(from validatedUser: ValidatedUser) {
+        if let errorTitle = validatedUser.errorTitle,
+           let mistakeDescription = validatedUser.mistakeDescription {
+//            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
+            showError(title: errorTitle, message: mistakeDescription)
+            print("el ")
         } else {
-            if transferUser.user != nil {
+            if validatedUser.user != nil {
+                
                 // pasitikrinimas ir placeholderis kad funkcija veiktu
                 print("OK")
-                print("\(transferUser.user?.username) and money amount \(transferUser.user?.moneyAmount)")
+                print("\(validatedUser.user?.username) and money amount \(validatedUser.user?.moneyAmount)")
             }
         }
     }
+    
+       private func showError(title: String, message: String) {
+            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            alertController.addAction(alertAction)
+            self.present(alertController, animated: true)
+        }
         /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
          TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
         
