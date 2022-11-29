@@ -14,7 +14,6 @@
                 <outlet property="enterPasswordTextField" destination="OHu-0c-Q1n" id="fSh-Tq-zkn"/>
                 <outlet property="enterUsernameTextField" destination="8cL-ng-IAl" id="5bG-uO-Nvy"/>
                 <outlet property="loginButton" destination="rp9-LX-FqK" id="ufX-qD-acB"/>
-                <outlet property="retypePasswordTextField" destination="Fvg-n3-ETO" id="a2a-ZY-Slk"/>
                 <outlet property="userLoginSegmentedController" destination="rxz-mP-TQX" id="z8e-Tg-4fx"/>
                 <outlet property="view" destination="Rtm-c6-hZp" id="4fr-7c-C6t"/>
             </connections>
@@ -25,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5of-Kj-LaJ">
-                    <rect key="frame" x="174" y="170.66666666666666" width="45" height="52.333333333333343"/>
+                    <rect key="frame" x="174" y="214.66666666666666" width="45" height="52.333333333333343"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="CMi-vL-R5L"/>
                         <constraint firstAttribute="width" constant="45" id="yDO-Mm-kQV"/>
@@ -39,7 +38,7 @@
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Username" borderStyle="line" placeholder="Enter Username" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8cL-ng-IAl">
-                    <rect key="frame" x="15" y="284" width="363" height="40"/>
+                    <rect key="frame" x="15" y="328" width="363" height="40"/>
                     <color key="tintColor" name="AccentColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="IOc-6Y-sm0"/>
@@ -49,7 +48,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter Password" borderStyle="line" placeholder="Enter Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OHu-0c-Q1n">
-                    <rect key="frame" x="15" y="339" width="363" height="40"/>
+                    <rect key="frame" x="15" y="383" width="363" height="40"/>
                     <color key="tintColor" systemColor="linkColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="LY0-of-sfp"/>
@@ -59,7 +58,7 @@
                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rp9-LX-FqK">
-                    <rect key="frame" x="120" y="464" width="153" height="50"/>
+                    <rect key="frame" x="120" y="463" width="153" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="TR5-9D-Dyt"/>
                     </constraints>
@@ -72,7 +71,7 @@
                     </connections>
                 </button>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rxz-mP-TQX">
-                    <rect key="frame" x="60" y="234" width="273" height="31"/>
+                    <rect key="frame" x="60" y="278" width="273" height="31"/>
                     <color key="backgroundColor" red="0.9624335614891637" green="0.97196260665242273" blue="0.97196260665242273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="jH1-MA-MZV"/>
@@ -87,35 +86,21 @@
                         <action selector="userLoginSegmentedControllerStateChanged:" destination="-1" eventType="valueChanged" id="ZI3-sT-rbq"/>
                     </connections>
                 </segmentedControl>
-                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Retype Password" borderStyle="line" placeholder="Retype Password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fvg-n3-ETO">
-                    <rect key="frame" x="15" y="394" width="363" height="40"/>
-                    <color key="tintColor" systemColor="linkColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="fGD-SS-dlq"/>
-                    </constraints>
-                    <color key="textColor" systemColor="systemGrayColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                </textField>
             </subviews>
             <viewLayoutGuide key="safeArea" id="moO-lU-xTc"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="moO-lU-xTc" firstAttribute="trailing" secondItem="OHu-0c-Q1n" secondAttribute="trailing" constant="15" id="2Jx-Tb-x4c"/>
-                <constraint firstItem="rp9-LX-FqK" firstAttribute="top" secondItem="Fvg-n3-ETO" secondAttribute="bottom" constant="30" id="B1X-KR-Zxg"/>
                 <constraint firstItem="rp9-LX-FqK" firstAttribute="leading" secondItem="moO-lU-xTc" secondAttribute="leading" constant="120" id="ESR-W5-cfl"/>
                 <constraint firstItem="8cL-ng-IAl" firstAttribute="top" secondItem="rxz-mP-TQX" secondAttribute="bottom" constant="20" id="Gr0-o6-Kae"/>
-                <constraint firstItem="Fvg-n3-ETO" firstAttribute="top" secondItem="OHu-0c-Q1n" secondAttribute="bottom" constant="15" id="I5h-ex-efd"/>
                 <constraint firstItem="OHu-0c-Q1n" firstAttribute="top" secondItem="8cL-ng-IAl" secondAttribute="bottom" constant="15" id="LBD-MH-O5N"/>
-                <constraint firstItem="moO-lU-xTc" firstAttribute="trailing" secondItem="Fvg-n3-ETO" secondAttribute="trailing" constant="15" id="M2j-CU-efB"/>
-                <constraint firstItem="Fvg-n3-ETO" firstAttribute="leading" secondItem="moO-lU-xTc" secondAttribute="leading" constant="15" id="MCc-03-R0b"/>
                 <constraint firstItem="lvB-UH-CMj" firstAttribute="leading" secondItem="moO-lU-xTc" secondAttribute="leading" constant="140" id="Mls-49-Kr2"/>
                 <constraint firstItem="lvB-UH-CMj" firstAttribute="top" secondItem="moO-lU-xTc" secondAttribute="top" constant="10" id="QL8-hT-BUL"/>
                 <constraint firstItem="OHu-0c-Q1n" firstAttribute="leading" secondItem="moO-lU-xTc" secondAttribute="leading" constant="15" id="RCr-PW-Kcw"/>
                 <constraint firstItem="8cL-ng-IAl" firstAttribute="top" secondItem="rxz-mP-TQX" secondAttribute="bottom" constant="20" id="Skq-7k-Ufx"/>
-                <constraint firstItem="5of-Kj-LaJ" firstAttribute="top" secondItem="lvB-UH-CMj" secondAttribute="bottom" constant="16" id="Ycr-sa-kpG"/>
+                <constraint firstItem="5of-Kj-LaJ" firstAttribute="top" secondItem="lvB-UH-CMj" secondAttribute="bottom" constant="60" id="Ycr-sa-kpG"/>
                 <constraint firstItem="moO-lU-xTc" firstAttribute="trailing" secondItem="8cL-ng-IAl" secondAttribute="trailing" constant="15" id="Yue-aa-mxA"/>
-                <constraint firstItem="Fvg-n3-ETO" firstAttribute="top" secondItem="OHu-0c-Q1n" secondAttribute="bottom" constant="15" id="cf4-2B-yNl"/>
+                <constraint firstItem="rp9-LX-FqK" firstAttribute="top" secondItem="OHu-0c-Q1n" secondAttribute="bottom" constant="40" id="fUp-Cq-YPQ"/>
                 <constraint firstItem="moO-lU-xTc" firstAttribute="trailing" secondItem="rxz-mP-TQX" secondAttribute="trailing" constant="60" id="ftp-Uf-2NM"/>
                 <constraint firstItem="8cL-ng-IAl" firstAttribute="leading" secondItem="moO-lU-xTc" secondAttribute="leading" constant="15" id="myd-Nj-aIN"/>
                 <constraint firstItem="5of-Kj-LaJ" firstAttribute="centerX" secondItem="moO-lU-xTc" secondAttribute="centerX" id="nzp-sb-dU4"/>

@@ -16,11 +16,11 @@ struct CreatedUser {
 class UserManager {
     
     var users: [User] = []
-    var initialAmount: Double = 100.0
+    var initialAmount: Int = 100
     
     
     // vartotojo registravimo f- ja. grazina CreatedUser struct'a
-    func register(username: String, password: String, retypePassword: String) -> CreatedUser {
+    func register(username: String, password: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
         
         // guardas padeda patikrinti ar ivestas slaptazodis ir passwordas i tekstini lauka,
@@ -38,12 +38,7 @@ class UserManager {
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")
         }
-        
-        //patikrinimas ar registruojantis passwordo pakartojimas sutampa su passwordu
-        if password != retypePassword {
-            return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Your password didn't match")
-        }
-        
+
         // pereinama ir patikrinamas useriu sarasas
         for user in users {
             if username == user.username {
@@ -52,7 +47,7 @@ class UserManager {
         }
         
         // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie users array'iaus
-        let user = User(username: username, password: password, moneyAmount: initialAmount)
+        let user = User(username: username, password: password, moneyAmount: 100)
         
         users.append(user)
         //pasitikrinimas (nebutinas)
@@ -94,7 +89,7 @@ class UserManager {
         for user in users where username != user.username {
             return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
         }
-        let user = User(username: username, password: "", moneyAmount: initialAmount )
+        let user = User(username: username, password: "", moneyAmount: 0)
         return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
         
     }

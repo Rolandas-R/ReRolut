@@ -10,9 +10,9 @@ import Foundation
 class User{
     let username: String
     let password: String
-    var moneyAmount: Double
+    var moneyAmount: Int
     
-    init(username: String, password: String, moneyAmount: Double) {
+    init(username: String, password: String, moneyAmount: Int) {
         self.username = username
         self.password = password
         self.moneyAmount = moneyAmount
@@ -21,8 +21,8 @@ class User{
     
     
     // TODO: pervedimu ir tasku apskaitos funkcijos
-    private func recalculateMoneyAmount() -> Double {
-        return 0.00
+    private func recalculateMoneyAmount() -> Int {
+        return 0
     }
     
     private func moneyTransfer(){}

@@ -23,7 +23,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet private weak var enterPasswordTextField: UITextField!
     
-    @IBOutlet private weak var retypePasswordTextField: UITextField!
+
     
     @IBOutlet private weak var loginButton: UIButton!
     
@@ -47,11 +47,10 @@ class RootViewController: UIViewController {
         let myColor = UIColor.systemBlue
         enterUsernameTextField.layer.borderColor = myColor.cgColor
         enterPasswordTextField.layer.borderColor = myColor.cgColor
-        retypePasswordTextField.layer.borderColor = myColor.cgColor
         
         enterUsernameTextField.layer.borderWidth = 2.0
         enterPasswordTextField.layer.borderWidth = 2.0
-        retypePasswordTextField.layer.borderWidth = 2.0
+
         
         //textfield delegatai, bandymui dissmisinti klaviatura
         //        enterUsernameTextField.delegate = self
@@ -69,22 +68,13 @@ class RootViewController: UIViewController {
         } else if userLoginSegmentedController.selectedSegmentIndex == 1 {
             currentSegment = .login
         }
-        
-        /* jeigu pasirinktas segmentas yra .login tai passwordo retypinimo textfieldas nerodomas */
-        retypePasswordTextField.isHidden = currentSegment != .register
-        
-        
-        
+               
         // switchas kurio pagalba isvedamas uzrasas ant mygtuko:
         switch currentSegment {
         case .register:
             loginButton.setTitle("REGISTER", for: .normal)
         case .login:
             loginButton.setTitle("LOGIN", for: .normal)
-            
-            
-            //patikrinimas kuris segmentas pasirinktas (nebutinas)
-            print(userLoginSegmentedController.selectedSegmentIndex)
         }
         
     }
@@ -100,13 +90,9 @@ class RootViewController: UIViewController {
         
         switch currentSegment {
             
-            // Kol kas neradau sprendimo kaip su if'u unwrappinti Optionals. Ismeta switch error'a:
-            // if let username = username, let password = password, let retypePassword = retypePassword {
-            
         case .register:
             let initialResult = userManager.register(username: enterUsernameTextField.text ?? "",
-                                                     password: enterPasswordTextField.text ?? "",
-                                                     retypePassword: retypePasswordTextField.text ?? "")
+                                                     password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
             
         case .login:
