@@ -62,7 +62,8 @@ class TransfersViewController: UIViewController {
     func checkUser(from transferUser: CreatedUser) {
         if let errorTitle = transferUser.errorTitle,
            let mistakeDescription = transferUser.mistakeDescription {
-            showError(title: errorTitle, message: mistakeDescription)
+            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
+//            showError(title: errorTitle, message: mistakeDescription)
             print("el erroro")
         } else {
             if transferUser.user != nil {
@@ -75,12 +76,12 @@ class TransfersViewController: UIViewController {
         /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
          TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
         
-    func showError(title: String, message: String) {
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true)
-        }
+//    func showError(title: String, message: String) {
+//            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//            alertController.addAction(alertAction)
+//            self.present(alertController, animated: true)
+//        }
         
     }
 

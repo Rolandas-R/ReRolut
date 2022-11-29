@@ -120,7 +120,10 @@ class RootViewController: UIViewController {
     private func checkUser(from createdUser: CreatedUser) {
         if let errorTitle = createdUser.errorTitle,
            let mistakeDescription = createdUser.mistakeDescription {
-            showError(title: errorTitle, message: mistakeDescription)
+            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
+            
+            // senas variantas
+//            showError(title: errorTitle, message: mistakeDescription)
             print("el erroro")
         } else {
             if createdUser.user != nil {
@@ -137,14 +140,15 @@ class RootViewController: UIViewController {
         
     }
     /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
-     TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
+     MARK: senas variantas. Perdariau su UIALertControleriu */
     
-   private func showError(title: String, message: String) {
-        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(alertAction)
-        self.present(alertController, animated: true)
-    }
+//   private func showError(title: String, message: String) {
+//        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        alertController.addAction(alertAction)
+//        self.present(alertController, animated: true)
+//    }
+    
     
     
 }

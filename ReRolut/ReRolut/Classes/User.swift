@@ -19,6 +19,7 @@ class User{
     }
     
     
+    
     // TODO: pervedimu ir tasku apskaitos funkcijos
     private func recalculateMoneyAmount() -> Double {
         return 0.00
@@ -30,3 +31,5 @@ class User{
     private func finalAmount() {
     }
 }
+
+
