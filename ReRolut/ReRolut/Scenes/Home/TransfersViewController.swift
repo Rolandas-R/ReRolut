@@ -23,7 +23,7 @@ class TransfersViewController: UIViewController {
     
     var passtxt: String?
     
-    let userManager = UserManager()
+    var userManager: UserManager! = nil
     
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class TransfersViewController: UIViewController {
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
         
-        
+//        
 //        let rootViewController = RootViewController()
 //        let userManager = rootViewController.userManager
       
@@ -71,7 +71,7 @@ class TransfersViewController: UIViewController {
            let mistakeDescription = validatedUser.mistakeDescription {
 //            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
             showError(title: errorTitle, message: mistakeDescription)
-            print("el ")
+            print("eroras")
         } else {
             if validatedUser.user != nil {
                 

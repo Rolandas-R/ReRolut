@@ -27,8 +27,6 @@ class UserManager {
     
 
     
-    
-    
     // vartotojo registravimo f- ja. grazina CreatedUser struct'a
     func register(username: String, password: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
@@ -61,6 +59,13 @@ class UserManager {
         
         users.append(user)
         //pasitikrinimas (nebutinas)
+
+        
+//        let userOne = User(username: "111", password: "111", moneyAmount: 200)
+//        users.append(userOne)
+//        let userTwo = User(username: "222", password: "222", moneyAmount: 300)
+//        users.append(userTwo)
+        
         dump(users)
         for user in users {
             print(user.username)
@@ -69,6 +74,8 @@ class UserManager {
         // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
     }
+    
+
     
     // vartotojo loginimo f-ja kur tikrinama ar toks vartotojas yra ir ar pateikti visi duomenys sutampa
     // tikrinimas su closure
@@ -98,35 +105,29 @@ class UserManager {
     
     func checkUsersList(username: String) -> ValidatedUser {
         let userCheckingErrorTitle = "Error with user validation"
-
-        let scrutinizedUser = users.first(where: { $0.username == username })
-
-        guard let user = scrutinizedUser else {
-            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "aa")
+        
+        guard let user = users.first(where: { user in user.username == username })
+        else { return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
+            
         }
+        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+
+//        let scrutinizedUser = users.first(where: { $0.username == username })
+//
+//        guard let user = scrutinizedUser else {
+//            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "aa")
+//        }
 //
 //        if user.username != username {
 //            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "bb")
 //        }
-        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+        
 
         }
-    let userOne = User(username: "111", password: "111", moneyAmount: 200)
-    users.append(userOne)
-    let userTwo = User(username: "222", password: "222", moneyAmount: 300)
 
     }
 
-
     
     
-//    for user in users {
-//        if username != user.username {
-//            break
-//        }
-//    }
-//    return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
-//}
-//
     
 

@@ -30,7 +30,7 @@ class RootViewController: UIViewController {
 
     
     var currentSegment: Segment = .register
-//    var userManager = UserManager()
+    var userManager = UserManager()
     
 
     
@@ -84,8 +84,8 @@ class RootViewController: UIViewController {
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
         
-        let transfersViewController = TransfersViewController()
-        var userManager = transfersViewController.userManager
+//        let transfersViewController = TransfersViewController()
+//        var userManager = transfersViewController.userManager
         
         //patikrinimas ar veikia duomenu ivedimas (nebutinas)
         print(enterUsernameTextField.text!)
@@ -124,6 +124,7 @@ class RootViewController: UIViewController {
                 // MARK: reikes perdaryti su delegatu? o ir skaitosi kazkaip ne negraziai
                 transfersViewController.passtxt = "Hello \(createdUser.user!.username), money amount that you have: \(createdUser.user!.moneyAmount)"
                 print("OK")
+                transfersViewController.userManager = self.userManager
             }
         }
         
