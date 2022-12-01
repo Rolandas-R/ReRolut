@@ -12,6 +12,9 @@ class User{
     let password: String
     var moneyAmount: Int
     
+
+    
+    
     init(username: String, password: String, moneyAmount: Int) {
         self.username = username
         self.password = password
@@ -20,15 +23,21 @@ class User{
     
     
     
-    // TODO: pervedimu ir tasku apskaitos funkcijos
-    private func recalculateMoneyAmount() -> Int {
-        return 0
-    }
     
-    private func moneyTransfer(){}
+    // TODO: pervedimu ir tasku apskaitos funkcijos
+    
+    func sendMoney(amount: Int){
+        self.moneyAmount -= amount
+        
+//        var receiverAmount = moneyAmount + amount
+    }
+
+    
+    private func updateAmount(){}
     
     
     private func finalAmount() {
+        
     }
     
     func validateSum(amount: Int) {

@@ -118,10 +118,10 @@ class RootViewController: UIViewController {
             if createdUser.user != nil {
                 // navigation viewControleris ir perejimas i kita VC
                 let transfersViewController = TransfersViewController()
+                transfersViewController.currentUser = createdUser.user
+    
                 navigationController?.pushViewController(transfersViewController, animated: true)
-                
-                //bandymas perduoti duomenis i TransfersVC pasveikinimo lauka per passtxt kintamaji
-                // MARK: reikes perdaryti su delegatu? o ir skaitosi kazkaip ne negraziai
+
                 transfersViewController.passtxt = "Hello \(createdUser.user!.username), money amount that you have: \(createdUser.user!.moneyAmount)"
                 print("OK")
                 transfersViewController.userManager = self.userManager

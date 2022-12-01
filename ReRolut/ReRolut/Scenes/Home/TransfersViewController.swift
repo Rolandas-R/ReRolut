@@ -25,9 +25,11 @@ class TransfersViewController: UIViewController {
     
     var userManager: UserManager! = nil
     
-    var user: User!
+//    var user: User!
     
-    var transferAmount: Int?
+    var currentUser: User!
+    
+    
     
     
     override func viewDidLoad() {
@@ -47,47 +49,59 @@ class TransfersViewController: UIViewController {
     }
     
     
-    
-    
     @IBAction private func logOutButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    
-    
     @IBAction private func transferButtonTapped(_ sender: Any) {
         
-        let transferUser = userManager.checkUsersList(username: transferToUserTextField.text!)
-        checkUser(from: transferUser)
+        let amount = Int(enteringAmountTextField.text!) ?? 0
+        let userToTransfer = transferToUserTextField.text ?? ""
         
-        let transferSum = userManager.checkAmount(amount: Int(enteringAmountTextField.text!)!)
-        checkUser(from: transferSum)
+        if enteringAmountTextField.text! == "" {
+            UIAlertController.showErrorAlert(title: "Error", message: "Please, enter amount to transfer", controller: self)}
+        else {
+                let transferUser = userManager.checkUsersList(username: userToTransfer,
+                                                              amount: amount)
+                checkUser(from: transferUser)
+
+            }
+        currentUser?.sendMoney(amount: amount)
+        userGreetingAndInfoLabel.text! = "\(currentUser?.moneyAmount)"
 
     }
+        
+
     
     
-    func checkUser(from validatedUser: ValidatedUser) {
-        if let errorTitle = validatedUser.errorTitle,
-           let mistakeDescription = validatedUser.mistakeDescription {
-//            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
-            showError(title: errorTitle, message: mistakeDescription)
-            print("eroras")
-        } else {
-            if validatedUser.user != nil {
-                
-                // pasitikrinimas ir placeholderis kad funkcija veiktu
-                print("OK")
-                print("\(validatedUser.user?.username) and money amount \(validatedUser.user?.moneyAmount)")
+        func checkUser(from validatedUser: ValidatedUser) {
+            if let errorTitle = validatedUser.errorTitle,
+               let mistakeDescription = validatedUser.mistakeDescription {
+                UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
             }
         }
     }
+
+
+
+//            showError(title: errorTitle, message: mistakeDescription)
+//            print("eroras")
+//        } else {
+//            if validatedUser.user != nil {
+//
+//                // pasitikrinimas ir placeholderis kad funkcija veiktu
+//                print("OK")
+//                print("\(validatedUser.user?.username) and money amount \(validatedUser.user?.moneyAmount)")
+//            }
+//        }
     
-       private func showError(title: String, message: String) {
-            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(alertAction)
-            self.present(alertController, animated: true)
-        }
+    
+//       private func showError(title: String, message: String) {
+//            let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//            alertController.addAction(alertAction)
+//            self.present(alertController, animated: true)
+//        }
         /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
          TODO: perziureti ir pakeisti sita alerta, kad jis butu imamas is UIAlertController klases */
         
@@ -98,7 +112,7 @@ class TransfersViewController: UIViewController {
 //            self.present(alertController, animated: true)
 //        }
         
-    }
+    
 
     
     
@@ -121,3 +135,13 @@ class TransfersViewController: UIViewController {
      */
     
 
+//if currentUser.moneyAmount <= Int(enteringAmountTextField.text!) ?? 0 {
+//    print("not Ok")
+//}
+
+//
+//        let transferSum = userManager.checkAmount(amount: Int(enteringAmountTextField.text) ?? 0)
+//        checkUser(from: transferSum)
+        
+        
+        

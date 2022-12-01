@@ -20,6 +20,8 @@ struct ValidatedUser {
     let mistakeDescription: String?
 }
 
+
+
 class UserManager {
     
     var users: [User] = []
@@ -62,7 +64,7 @@ class UserManager {
         // pasitikrinimas
         dump(users)
         for user in users {
-            print(user.username)
+            print(user.moneyAmount)
         }
         
         // perduodama CreatedUser structui
@@ -97,27 +99,39 @@ class UserManager {
     }
     
     
-    func checkUsersList(username: String) -> ValidatedUser {
+    func checkUsersList(username: String, amount: Int) -> ValidatedUser {
         let userCheckingErrorTitle = "Error with user validation"
-        
-        guard let user = users.first(where: { user in user.username == username })
-        else { return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
-            
-        }
-        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
-    }
-    
-
-    func checkAmount(amount: Int) -> ValidatedUser {
         let amountValidationErrorTitle = "Error with money amount"
         
+        guard let user = users.first(where: { user in
+            user.username == username })
+        else {
+            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
+        }
         
-        guard let user = users.first(where: { user in user.moneyAmount >= amount}) else {
+        guard let user = users.first(where: { user in
+            let value = user.moneyAmount >= amount
+            return value })
+        else {
             return ValidatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
         }
-        return ValidatedUser(user: user, errorTitle: amountValidationErrorTitle, mistakeDescription: nil)
+        
+        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+
     }
-}
+
+    }
+
+    
+//
+//    func checkAmount(amount: Int) -> ValidatedUser {
+//
+//
+//
+//
+//        return ValidatedUser(user: user, errorTitle: amountValidationErrorTitle, mistakeDescription: nil)
+//    }
+//}
     
 
 
