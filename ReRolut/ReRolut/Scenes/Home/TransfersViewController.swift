@@ -25,6 +25,10 @@ class TransfersViewController: UIViewController {
     
     var userManager: UserManager! = nil
     
+    var user: User!
+    
+    var transferAmount: Int?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,17 +57,13 @@ class TransfersViewController: UIViewController {
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
         
-//        
-//        let rootViewController = RootViewController()
-//        let userManager = rootViewController.userManager
-      
         let transferUser = userManager.checkUsersList(username: transferToUserTextField.text!)
         checkUser(from: transferUser)
-
-//        let transferSum = userManager.
-    }
         
+        let transferSum = userManager.checkAmount(amount: Int(enteringAmountTextField.text!)!)
+        checkUser(from: transferSum)
 
+    }
     
     
     func checkUser(from validatedUser: ValidatedUser) {

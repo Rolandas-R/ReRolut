@@ -30,6 +30,14 @@ class User{
     
     private func finalAmount() {
     }
+    
+    func validateSum(amount: Int) {
+        if amount >= moneyAmount {
+            print("Value OK")
+        } else {
+            print("Value wrong")
+        }
+    }
 }
 
 

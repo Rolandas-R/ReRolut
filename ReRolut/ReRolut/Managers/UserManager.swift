@@ -25,7 +25,7 @@ class UserManager {
     var users: [User] = []
     var initialAmount: Int = 100
     
-
+    
     
     // vartotojo registravimo f- ja. grazina CreatedUser struct'a
     func register(username: String, password: String) -> CreatedUser {
@@ -58,14 +58,8 @@ class UserManager {
         let user = User(username: username, password: password, moneyAmount: initialAmount)
         
         users.append(user)
-        //pasitikrinimas (nebutinas)
-
         
-//        let userOne = User(username: "111", password: "111", moneyAmount: 200)
-//        users.append(userOne)
-//        let userTwo = User(username: "222", password: "222", moneyAmount: 300)
-//        users.append(userTwo)
-        
+        // pasitikrinimas
         dump(users)
         for user in users {
             print(user.username)
@@ -75,7 +69,7 @@ class UserManager {
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
     }
     
-
+    
     
     // vartotojo loginimo f-ja kur tikrinama ar toks vartotojas yra ir ar pateikti visi duomenys sutampa
     // tikrinimas su closure
@@ -111,21 +105,22 @@ class UserManager {
             
         }
         return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
-
-//        let scrutinizedUser = users.first(where: { $0.username == username })
-//
-//        guard let user = scrutinizedUser else {
-//            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "aa")
-//        }
-//
-//        if user.username != username {
-//            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "bb")
-//        }
-        
-
-        }
-
     }
+    
+
+    func checkAmount(amount: Int) -> ValidatedUser {
+        let amountValidationErrorTitle = "Error with money amount"
+        
+        
+        guard let user = users.first(where: { user in user.moneyAmount >= amount}) else {
+            return ValidatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
+        }
+        return ValidatedUser(user: user, errorTitle: amountValidationErrorTitle, mistakeDescription: nil)
+    }
+}
+    
+
+
 
     
     
