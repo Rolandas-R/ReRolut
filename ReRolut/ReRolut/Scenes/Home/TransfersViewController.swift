@@ -58,6 +58,7 @@ class TransfersViewController: UIViewController {
         let amount = Int(enteringAmountTextField.text!) ?? 0
         let userToTransfer = transferToUserTextField.text ?? ""
         
+        // MARK: formulese reikalingos korekcijos - veikia nepilnai korektiskai, nuskaiciuoja kai nereikia
         if enteringAmountTextField.text! == "" {
             UIAlertController.showErrorAlert(title: "Error", message: "Please, enter amount to transfer", controller: self)}
         else {
@@ -67,13 +68,18 @@ class TransfersViewController: UIViewController {
 
             }
         currentUser?.sendMoney(amount: amount)
-        userGreetingAndInfoLabel.text! = "\(currentUser?.moneyAmount)"
+        userGreetingAndInfoLabel.text! = "\(currentUser?.moneyAmount ?? 0)"
+        
+        for user in userManager.users{
+            if user.username == userToTransfer{
+                user.receiveMoney(amount: amount)
+                print("receiver \(user.username) and new amount \(user.moneyAmount)")
+            }
+        }
 
     }
-        
-
-    
-    
+  
+    // kad sutvarkyti pervedimo f-ju korektiska veikima greiciausiai reikes koreguot sia f-ja (panasiai kaip func checkUser RootVC
         func checkUser(from validatedUser: ValidatedUser) {
             if let errorTitle = validatedUser.errorTitle,
                let mistakeDescription = validatedUser.mistakeDescription {

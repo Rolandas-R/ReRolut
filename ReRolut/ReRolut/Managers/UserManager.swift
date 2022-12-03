@@ -103,12 +103,14 @@ class UserManager {
         let userCheckingErrorTitle = "Error with user validation"
         let amountValidationErrorTitle = "Error with money amount"
         
-        guard let user = users.first(where: { user in
-            user.username == username })
+        guard users.first(where: { user in
+            user.username == username }) != nil
         else {
             return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
         }
         
+        
+        // MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
         guard let user = users.first(where: { user in
             let value = user.moneyAmount >= amount
             return value })
