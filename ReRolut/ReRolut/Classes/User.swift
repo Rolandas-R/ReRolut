@@ -28,6 +28,10 @@ class User{
     func receiveMoney(amount: Int){
         self.moneyAmount += amount
     }
+    
+    func userAmount(username: String) -> Int{
+        return self.moneyAmount
+    }
 
 }
 

@@ -14,14 +14,6 @@ struct CreatedUser {
 
 }
 
-struct ValidatedUser {
-    let user: User?
-    let errorTitle: String?
-    let mistakeDescription: String?
-}
-
-
-
 class UserManager {
     
     var users: [User] = []
@@ -99,30 +91,30 @@ class UserManager {
     }
     
     
-    func checkUsersList(username: String, amount: Int) -> ValidatedUser {
-        let userCheckingErrorTitle = "Error with user validation"
-        let amountValidationErrorTitle = "Error with money amount"
-        
-        guard users.first(where: { user in
-            user.username == username }) != nil
-        else {
-            return ValidatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
-        }
+//    func checkUsersList(username: String) -> CreatedUser {
+//        let userCheckingErrorTitle = "Error with user validation"
+//        
+//        guard let user = users.first(where: { $0.username == username })
+//        else {
+//            return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
+//        }
+//        return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+//    }
+}
         
         
         // MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
-        guard let user = users.first(where: { user in
-            let value = user.moneyAmount >= amount
-            return value })
-        else {
-            return ValidatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
-        }
+//        guard let user = users.first(where: { user in
+//            user.username == username })
+//        else {
+//            return CreatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
+//        }
         
-        return ValidatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
 
-    }
 
-    }
+    
+
+ 
 
     
 //
