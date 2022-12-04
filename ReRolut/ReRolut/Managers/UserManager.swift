@@ -34,8 +34,8 @@ class UserManager {
         }
         
         // antras guardas, kurio pagalba uztikriname kad username ir passwordas turetu bent 8 simbolius:
-        //            MARK: @warning reikes 2 pakeisti i 7
-        guard username.count > 2, password.count > 2
+
+        guard username.count > 7, password.count > 7
                 
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")
@@ -53,11 +53,8 @@ class UserManager {
         
         users.append(user)
         
-        // pasitikrinimas
-        dump(users)
-        for user in users {
-            print(user.moneyAmount)
-        }
+        // pasitikrinimas sau - isvedami visi arejuje users esantys useriai
+        // dump(users)
         
         // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
@@ -70,7 +67,7 @@ class UserManager {
     func login(username: String, password: String) -> CreatedUser {
         let loginErrorTitle = "Error while loging in"
         /*
-         //vienas is variantu su closure:
+         // vienas is variantu su closure:
          let checkedUser = users.first { user in
          user.username == username }
          //MARK: cia panaudotas antras CLOSURE variantas is CodeAcademyChat */
@@ -86,11 +83,11 @@ class UserManager {
             return CreatedUser(user: nil, errorTitle: loginErrorTitle, mistakeDescription: "Wrong password")
         }
         
-        //jei po auksciau atliktu patikrinimu viskas tvarkoje grazinamas CreatedUser
+        // jei po auksciau atliktu patikrinimu viskas tvarkoje grazinamas CreatedUser
         return CreatedUser(user: user, errorTitle: loginErrorTitle, mistakeDescription: nil)
     }
     
-    
+    // Funkcija, kuri paziuri ar tarp useriu yra toks, kuris ieskomas
     func checkUsersList(username: String) -> CreatedUser {
         let userCheckingErrorTitle = "Error with user validation"
         
@@ -110,8 +107,10 @@ class UserManager {
 
 
 
-        
-        // MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
+
+
+//
+// MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
 //        guard let user = users.first(where: { user in
 //            user.username == username })
 //        else {

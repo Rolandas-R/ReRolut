@@ -16,6 +16,7 @@ class RootViewController: UIViewController {
         case register, login
     }
     
+    // MARK: -- Outlets
     
     @IBOutlet private weak var userLoginSegmentedController: UISegmentedControl!
     
@@ -23,25 +24,18 @@ class RootViewController: UIViewController {
     
     @IBOutlet private weak var enterPasswordTextField: UITextField!
     
-
-    
     @IBOutlet private weak var loginButton: UIButton!
     
 
-    
     var currentSegment: Segment = .register
     var userManager = UserManager()
     
 
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // segmentedController raidziu spalvos keitimas is juodos i balta ir melyna
         userLoginSegmentedController.setTitleColor(UIColor.white)
-
 
         // textfieldu remeliu spalvos ir storio keitimas (TODO: paziureti ar galima kazkaip per UITextField extensions padaryti)
         let myColor = UIColor.systemBlue
@@ -51,14 +45,10 @@ class RootViewController: UIViewController {
         enterUsernameTextField.layer.borderWidth = 2.0
         enterPasswordTextField.layer.borderWidth = 2.0
 
-        
-        //textfield delegatai, bandymui dissmisinti klaviatura
-        //        enterUsernameTextField.delegate = self
-        //        enterPasswordTextField.delegate = self
-        //        retypePasswordTextField.delegate = self
-        // Do any additional setup after loading the view.
     }
     
+    
+    // MARK: -- Actions
     
     /* segmentinio kontrolerio veikimo f-ja. joje atsizvelgiant i pasirinkta busena (.login ar .register) parodoma ar bus isvedamas passwordo konfirminimo teksto laukas. Taip pat switcho pagalba, atsizvelgiant i segmenta, parenkamas rodomo labelio ant mygtuko uzrasas */
     @IBAction private func userLoginSegmentedControllerStateChanged(_ sender: Any) {
@@ -79,7 +69,7 @@ class RootViewController: UIViewController {
         
     }
     
-    /* mygtuko paspaudimas - atliekamos f-jos: priklausomai nuo pasirinkto segmento sukuriama initialResult konstanta, i kuria paduodami username, password (jei busena .register tai dar ir retypePassword) duomenys is atitinkamu textfieldu. initialResult duomenys toliau per konstanta userManager keliauja i atskirai esancia UserManager klase, kur aprasyta ivestu duomenu patikrinimo logika.
+    /* mygtuko paspaudimas - atliekamos f-jos: priklausomai nuo pasirinkto segmento sukuriama initialResult konstanta, i kuria paduodami username, password duomenys is atitinkamu textfieldu. initialResult duomenys toliau keliauja i UserManager klase, kur atitinkamose f-jose aprasyta ivestu duomenu patikrinimo logika.
      */
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
@@ -96,17 +86,12 @@ class RootViewController: UIViewController {
                                                   password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
         }
-           
     }
     
     private func checkUser(from createdUser: CreatedUser) {
         if let errorTitle = createdUser.errorTitle,
            let mistakeDescription = createdUser.mistakeDescription {
             UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
-            
-            // senas variantas
-//            showError(title: errorTitle, message: mistakeDescription)
-            print("el erroro")
         } else {
             if createdUser.user != nil {
                 // navigation viewControleris ir perejimas i kita VC
@@ -118,15 +103,10 @@ class RootViewController: UIViewController {
                 navigationController?.pushViewController(transfersViewController, animated: true)
             }
         }
-        
-    
-        
     }
-
 }
 
-
-// extensionas segmentedContollerio su raidziu spalvos keitimo funkcija
+// extensionas segmentedContollerio su raidziu spalvos keitimo funkcija (stackOverflow :))
 
 extension UISegmentedControl {
 
@@ -146,6 +126,12 @@ extension UISegmentedControl {
 
 
 
+/*
+//textfield delegatai, bandymui dissmisinti klaviatura (ikelti po viewDidLoad)
+//        enterUsernameTextField.delegate = self
+//        enterPasswordTextField.delegate = self
+//        retypePasswordTextField.delegate = self
+// Do any additional setup after loading the view.
 
 // extensionas, kad butu galima dissmissinti keyboard (1-as budas, su delegatais). Reikia i viewDIdLoad ikelti textfieldu delegatus
 
@@ -173,6 +159,7 @@ extension UISegmentedControl {
 //        alertController.addAction(alertAction)
 //        self.present(alertController, animated: true)
 //    }
+*/
 
 
 

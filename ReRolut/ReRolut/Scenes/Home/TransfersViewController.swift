@@ -58,24 +58,35 @@ class TransfersViewController: UIViewController {
         checkUser(from: validateUser)
     }
      
-    // funkcija patikrina ar toks useris egzistuoja
-    func checkUser(from validatedUser: CreatedUser) {
+// funkcija patikrina ar toks useris kuriam bus pervedama egzistuoja
+    private func checkUser(from validatedUser: CreatedUser) {
         let amount: Int = Int(enteringAmountTextField.text!) ?? 0
         
         if let errorTitle = validatedUser.errorTitle,
            let mistakeDescription = validatedUser.mistakeDescription {
             UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
         } else {
+            
+       /* kai is UserManager klases gaunamas useris, showErrorAlert'as nerodomas ir paleidziama moneyTransfering funkcija */
             if validatedUser.user != nil {
                 moneyTransfering(from: currentUser, to: validatedUser.user!, amount: amount)
             }
         }
     }
-    
-    func moneyTransfering(from currentUser: User, to userToTransfer: User, amount: Int){
+
+/* Funkcija, kurios pagalba:
+    1. pagal likusias salygas validuojami i textFiled'us ivesti duomenys:
+        - ar laukai nera tusti;
+        - ar nebandoma pervesti sau;
+        - ar pervedama suma nera 0 (nulis) ir ar ji nevirsija siuntejo turima pinigu suma.
+    Jei duomenys netenkina salygu - rodomas alertas su informacija.
+    2. jei visos salygos tenkinamos, textfielde nurodytam useriui pervedamas nurodyta suma.
+    3. isvedama informacija showErrorAlert'e currentUseriui, kad jo nurodyta suma pervesta nurodytam useriui. Taip pat textLabelyje atvaizduojama tiek siuntejo (currentUser) tiek ir gavejo turimi pinigai (moneyAmount) po operacijos
+ */
+    private func moneyTransfering(from currentUser: User, to userToTransfer: User, amount: Int){
         let userToTransfer = transferToUserTextField.text ?? ""
         
-        
+        // 1. tikrinimas
         if enteringAmountTextField.text == "" {
             UIAlertController.showErrorAlert(title: "Transfer Error", message: "Empty input field", controller: self)
             
@@ -84,14 +95,14 @@ class TransfersViewController: UIViewController {
             return
             
         } else if amount == 0 || amount > currentUser.moneyAmount {
-            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer more than you have or 0.00", controller: self)
+            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer 0 or less, \nor amount that exeeds what you have", controller: self)
             return
         }
-        
+        //2. pervedimo f-jos
         for user in userManager.users where userToTransfer == user.username {
             currentUser.sendMoney(amount: amount)
             user.receiveMoney(amount: amount)
-            
+            //3. informavimas
             UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(user.username)", controller: self)
             userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount) \nreceiver's \(user.username) money amount is: \(user.moneyAmount)")
         }
@@ -99,6 +110,12 @@ class TransfersViewController: UIViewController {
     }
 }
     
+
+
+
+
+
+/*
 //    func transferingProcess(sender: User, receiver: User, amount: Int) {
 //        let userToTransfer = transferToUserTextField.text ?? ""
 //        var amount = Int(enteringAmountTextField.text!) ?? 0
@@ -110,7 +127,6 @@ class TransfersViewController: UIViewController {
 //                user.receiveMoney(amount: amount)
 //                print("receiver \(user.username) and new amount \(user.moneyAmount)")
 //    }
-
 
 
 //            showError(title: errorTitle, message: mistakeDescription)
@@ -141,20 +157,12 @@ class TransfersViewController: UIViewController {
 //            self.present(alertController, animated: true)
 //        }
 
-
-        
-    
-
-    
-    
     
     //    // 2 budas dissmisint keyboarda paspaudus return
     //    @IBAction func textFielEditingDone(_ sender: UITextField) {
     //        sender.resignFirstResponder()
     //    }
-    
-    
-    
+  
     /*
      // MARK: - Navigation
      
@@ -164,7 +172,6 @@ class TransfersViewController: UIViewController {
      // Pass the selected object to the new view controller.
      }
      */
-    
 
 //if currentUser.moneyAmount <= Int(enteringAmountTextField.text!) ?? 0 {
 //    print("not Ok")
@@ -173,6 +180,7 @@ class TransfersViewController: UIViewController {
 //
 //        let transferSum = userManager.checkAmount(amount: Int(enteringAmountTextField.text) ?? 0)
 //        checkUser(from: transferSum)
-        
+ 
+ */
         
         
