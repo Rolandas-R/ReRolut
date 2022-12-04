@@ -91,17 +91,25 @@ class UserManager {
     }
     
     
-//    func checkUsersList(username: String) -> CreatedUser {
-//        let userCheckingErrorTitle = "Error with user validation"
-//        
-//        guard let user = users.first(where: { $0.username == username })
-//        else {
-//            return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
-//        }
-//        return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
-//    }
+    func checkUsersList(username: String) -> CreatedUser {
+        let userCheckingErrorTitle = "Error with user validation"
+        
+        guard !username.isEmpty
+        else {
+            return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "Fill the user you want to transfer")
+        }
+        
+        guard let user = users.first(where: { $0.username == username })
+        else {
+            return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
+        }
+        return CreatedUser(user: user, errorTitle: userCheckingErrorTitle, mistakeDescription: nil)
+    }
 }
         
+
+
+
         
         // MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
 //        guard let user = users.first(where: { user in
@@ -109,23 +117,7 @@ class UserManager {
 //        else {
 //            return CreatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
 //        }
-        
-
-
-    
-
  
-
-    
-//
-//    func checkAmount(amount: Int) -> ValidatedUser {
-//
-//
-//
-//
-//        return ValidatedUser(user: user, errorTitle: amountValidationErrorTitle, mistakeDescription: nil)
-//    }
-//}
     
 
 

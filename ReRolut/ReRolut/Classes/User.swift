@@ -19,7 +19,7 @@ class User{
     }
     
   
-    // TODO: pervedimu ir tasku apskaitos funkcijos
+    // MARK: --  pervedimu funkcijos
     
     func sendMoney(amount: Int){
         self.moneyAmount -= amount
@@ -28,11 +28,6 @@ class User{
     func receiveMoney(amount: Int){
         self.moneyAmount += amount
     }
-    
-    func userAmount(username: String) -> Int{
-        return self.moneyAmount
-    }
-
 }
 
 

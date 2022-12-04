@@ -52,44 +52,48 @@ class TransfersViewController: UIViewController {
     }
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
-        
-        let amount = Int(enteringAmountTextField.text!) ?? 0
         let userToTransfer = transferToUserTextField.text ?? ""
+        let validateUser = userManager.checkUsersList(username: userToTransfer)
         
-//        let transferUser = userManager.checkUsersList(username: userToTransfer)
-//        checkUser(from: transferUser)
-        moneyTransfering(from: currentUser, to: userToTransfer, amount: amount)
-
-       
+        checkUser(from: validateUser)
     }
-        
-    
-    
+     
     // funkcija patikrina ar toks useris egzistuoja
-//    func checkUser(from validatedUser: CreatedUser) {
-//        if let errorTitle = validatedUser.errorTitle,
-//           let mistakeDescription = validatedUser.mistakeDescription {
-//            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
-//        }
-//    }
+    func checkUser(from validatedUser: CreatedUser) {
+        let amount: Int = Int(enteringAmountTextField.text!) ?? 0
+        
+        if let errorTitle = validatedUser.errorTitle,
+           let mistakeDescription = validatedUser.mistakeDescription {
+            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
+        } else {
+            if validatedUser.user != nil {
+                moneyTransfering(from: currentUser, to: validatedUser.user!, amount: amount)
+            }
+        }
+    }
     
-    func moneyTransfering(from currentUser: User, to userToTransfer: String, amount: Int){
-        let amount = Int(enteringAmountTextField.text!) ?? 0
+    func moneyTransfering(from currentUser: User, to userToTransfer: User, amount: Int){
         let userToTransfer = transferToUserTextField.text ?? ""
         
         
-        if enteringAmountTextField.text == "" || transferToUserTextField.text == "" {
-            UIAlertController.showErrorAlert(title: "Error", message: "Empty input fields", controller: self)
-        } else if transferToUserTextField.text! == currentUser.username {
-            UIAlertController.showErrorAlert(title: "Error", message: "You can not transfer to yourself", controller: self)
+        if enteringAmountTextField.text == "" {
+            UIAlertController.showErrorAlert(title: "Transfer Error", message: "Empty input field", controller: self)
+            
+        } else if userToTransfer == currentUser.username {
+            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer to yourself", controller: self)
+            return
+            
+        } else if amount == 0 || amount > currentUser.moneyAmount {
+            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer more than you have or 0.00", controller: self)
+            return
         }
-        for user in userManager.users
-        where userToTransfer == user.username &&
-        amount <= currentUser.moneyAmount {
+        
+        for user in userManager.users where userToTransfer == user.username {
             currentUser.sendMoney(amount: amount)
             user.receiveMoney(amount: amount)
-            print("receiver \(user.username) and new amount \(user.moneyAmount)")
-            userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount = \(currentUser.moneyAmount); receiver's \(user.username) money amount = \(user.moneyAmount)")
+            
+            UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(user.username)", controller: self)
+            userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount) \nreceiver's \(user.username) money amount is: \(user.moneyAmount)")
         }
         
     }

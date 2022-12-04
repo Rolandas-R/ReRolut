@@ -83,14 +83,7 @@ class RootViewController: UIViewController {
      */
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
-        
-//        let transfersViewController = TransfersViewController()
-//        var userManager = transfersViewController.userManager
-        
-        //patikrinimas ar veikia duomenu ivedimas (nebutinas)
-        print(enterUsernameTextField.text!)
-        print(enterPasswordTextField.text!)
-        
+
         switch currentSegment {
             
         case .register:
@@ -129,18 +122,7 @@ class RootViewController: UIViewController {
     
         
     }
-    /* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
-     MARK: senas variantas. Perdariau su UIALertControleriu */
-    
-//   private func showError(title: String, message: String) {
-//        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alertController.addAction(alertAction)
-//        self.present(alertController, animated: true)
-//    }
 
-    
-    
 }
 
 
@@ -173,5 +155,27 @@ extension UISegmentedControl {
 //            return true
 //        }
 //    }
+
+// Is loginbuttontapped:
+//        let transfersViewController = TransfersViewController()
+//        var userManager = transfersViewController.userManager
+
+//patikrinimas ar veikia duomenu ivedimas (nebutinas)
+//        print(enterUsernameTextField.text!)
+//        print(enterPasswordTextField.text!)
+
+/* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
+ MARK: senas variantas. Perdariau su UIALertControleriu */
+
+//   private func showError(title: String, message: String) {
+//        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//        alertController.addAction(alertAction)
+//        self.present(alertController, animated: true)
+//    }
+
+
+
+
 
 
