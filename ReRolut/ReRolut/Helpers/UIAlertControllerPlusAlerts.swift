@@ -7,10 +7,6 @@
 
 import UIKit
 
-
-// nukopinta is QuizApp
-//TODO: pakoreguoti, pritaikyti ir suprasti kaip ir kodel sitas alertas veikia
-
 extension UIAlertController {
 
   static func showErrorAlert(title: String, message: String, controller: UIViewController, onTapAction: ((UIAlertAction) -> Void)? = nil) {

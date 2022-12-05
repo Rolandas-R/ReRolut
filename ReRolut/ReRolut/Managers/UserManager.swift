@@ -11,7 +11,6 @@ struct CreatedUser {
     let user: User?
     let errorTitle: String?
     let mistakeDescription: String?
-
 }
 
 class UserManager {
@@ -19,16 +18,15 @@ class UserManager {
     var users: [User] = []
     var initialAmount: Int = 100
     
-    
-    
-    // vartotojo registravimo f- ja. grazina CreatedUser struct'a
+
+    // vartotojo registravimo f- ja. grazina CreatedUser struct'a (veliau keliauja i RootViewController)
     func register(username: String, password: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
         
         // guardas padeda patikrinti ar ivestas slaptazodis ir passwordas i tekstini lauka,
         // tikrinimo logika: jei kazkas neivesta ar nesutampa - useris nesukuriamas ir isvedamas klaidos pranesimas
         guard !username.isEmpty, !password.isEmpty
-                
+
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Fill username and/or password")
         }
@@ -53,24 +51,19 @@ class UserManager {
         
         users.append(user)
         
-        // pasitikrinimas sau - isvedami visi arejuje users esantys useriai
-        // dump(users)
+        // pasitikrinimas sau - i konsole isvedami visi array [users] esantys useriai
+         dump(users)
         
         // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
     }
     
     
-    
-    // vartotojo loginimo f-ja kur tikrinama ar toks vartotojas yra ir ar pateikti visi duomenys sutampa
+    // vartotojo loginimo f-ja kur tikrinama ar toks vartotojas yra ir ar pateikti visi duomenys sutampa (RootViewController)
     // tikrinimas su closure
+    
     func login(username: String, password: String) -> CreatedUser {
         let loginErrorTitle = "Error while loging in"
-        /*
-         // vienas is variantu su closure:
-         let checkedUser = users.first { user in
-         user.username == username }
-         //MARK: cia panaudotas antras CLOSURE variantas is CodeAcademyChat */
         let checkedUser = users.first(where: { $0.username == username })
         
         // sitas guardas patikrina ir toliau praleidzia (arba ne), atsizvelgiant ar sutampa pateikti userio duomenys
@@ -87,7 +80,7 @@ class UserManager {
         return CreatedUser(user: user, errorTitle: loginErrorTitle, mistakeDescription: nil)
     }
     
-    // Funkcija, kuri paziuri ar tarp useriu yra toks, kuris ieskomas
+    // Funkcija, kuri paziuri ar tarp useriu yra toks, kuriam norima pervesti pinigus (TransfersViewController)
     func checkUsersList(username: String) -> CreatedUser {
         let userCheckingErrorTitle = "Error with user validation"
         
@@ -108,15 +101,6 @@ class UserManager {
 
 
 
-
-//
-// MARK: zemiau esantis guardas neveikia, praleidzia minusines reiksmes - reikes perdaryti!
-//        guard let user = users.first(where: { user in
-//            user.username == username })
-//        else {
-//            return CreatedUser(user: nil, errorTitle: amountValidationErrorTitle, mistakeDescription: "You don't have such amount to transfer")
-//        }
- 
     
 
 

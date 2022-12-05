@@ -16,7 +16,7 @@ class RootViewController: UIViewController {
         case register, login
     }
     
-    // MARK: -- Outlets
+    // MARK: -- Outlets:
     
     @IBOutlet private weak var userLoginSegmentedController: UISegmentedControl!
     
@@ -37,7 +37,7 @@ class RootViewController: UIViewController {
         // segmentedController raidziu spalvos keitimas is juodos i balta ir melyna
         userLoginSegmentedController.setTitleColor(UIColor.white)
 
-        // textfieldu remeliu spalvos ir storio keitimas (TODO: paziureti ar galima kazkaip per UITextField extensions padaryti)
+        // textfieldu remeliu spalvos ir storio keitimas
         let myColor = UIColor.systemBlue
         enterUsernameTextField.layer.borderColor = myColor.cgColor
         enterPasswordTextField.layer.borderColor = myColor.cgColor
@@ -48,9 +48,9 @@ class RootViewController: UIViewController {
     }
     
     
-    // MARK: -- Actions
+    // MARK: -- Actions:
     
-    /* segmentinio kontrolerio veikimo f-ja. joje atsizvelgiant i pasirinkta busena (.login ar .register) parodoma ar bus isvedamas passwordo konfirminimo teksto laukas. Taip pat switcho pagalba, atsizvelgiant i segmenta, parenkamas rodomo labelio ant mygtuko uzrasas */
+    /* segmentinio kontrolerio veikimo f-ja. joje atsizvelgiant i pasirinkta busena (.login ar .register) parenkamas rodomo labelio ant mygtuko uzrasas */
     @IBAction private func userLoginSegmentedControllerStateChanged(_ sender: Any) {
         
         if userLoginSegmentedController.selectedSegmentIndex == 0 {
@@ -104,6 +104,11 @@ class RootViewController: UIViewController {
             }
         }
     }
+    
+    // keyboard dismiss'inimas
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
 // extensionas segmentedContollerio su raidziu spalvos keitimo funkcija (stackOverflow :))
@@ -126,40 +131,6 @@ extension UISegmentedControl {
 
 
 
-/*
-//textfield delegatai, bandymui dissmisinti klaviatura (ikelti po viewDidLoad)
-//        enterUsernameTextField.delegate = self
-//        enterPasswordTextField.delegate = self
-//        retypePasswordTextField.delegate = self
-// Do any additional setup after loading the view.
-
-// extensionas, kad butu galima dissmissinti keyboard (1-as budas, su delegatais). Reikia i viewDIdLoad ikelti textfieldu delegatus
-
-//extension UIViewController: UITextFieldDelegate {
-//        public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//            textField.resignFirstResponder()
-//            return true
-//        }
-//    }
-
-// Is loginbuttontapped:
-//        let transfersViewController = TransfersViewController()
-//        var userManager = transfersViewController.userManager
-
-//patikrinimas ar veikia duomenu ivedimas (nebutinas)
-//        print(enterUsernameTextField.text!)
-//        print(enterPasswordTextField.text!)
-
-/* Klaidos rodymo f-ja. Pirminiame variante CodeAcademyChat buvo naudojamas errorMessageLabel, kuris pakeistas UIAlertAction'u.
- MARK: senas variantas. Perdariau su UIALertControleriu */
-
-//   private func showError(title: String, message: String) {
-//        let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-//        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-//        alertController.addAction(alertAction)
-//        self.present(alertController, animated: true)
-//    }
-*/
 
 
 
