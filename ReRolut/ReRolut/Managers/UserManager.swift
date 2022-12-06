@@ -37,7 +37,7 @@ class UserManager {
         
         // antras guardas, kurio pagalba uztikriname kad username ir passwordas turetu bent 8 simbolius:
 
-        guard username.count > 7, password.count > 7
+        guard username.count > 1, password.count > 1
                 
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")

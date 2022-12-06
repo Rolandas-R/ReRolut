@@ -29,16 +29,13 @@ class TransferValidator {
             return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "Empty fields")
         }
         // ar nesiuncia sau ir ar yra toks gavejas
-        for user in UserManager.instance.users{
-            if sender == user.username {
-                return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You cant' transfer to yourself")
-            } else if receiver == user.username{
-                return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "There is nos such receiver")
-            }
-        }
         
+        guard sender != receiver else {
+            return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You cant' transfer to yourself")
+        }
+            
         // ar suma yra teigiama
-        guard amount >= 0 else {
+        guard amount > 0 else {
             return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You can not transfer Zero or less")
         }
         
