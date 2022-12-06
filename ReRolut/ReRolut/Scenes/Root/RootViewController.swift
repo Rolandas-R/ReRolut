@@ -97,8 +97,6 @@ class RootViewController: UIViewController {
                 // navigation viewControleris ir perejimas i kita VC
                 let transfersViewController = TransfersViewController()
                 transfersViewController.currentUser = createdUser.user
-                transfersViewController.passtxt = "Hello \(createdUser.user!.username), money amount that you have: \(createdUser.user!.moneyAmount)"
-    
                 navigationController?.pushViewController(transfersViewController, animated: true)
             }
         }

@@ -45,7 +45,7 @@ class TransferValidator {
             return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You don't have enough money")
         }
         
-        return ValidatedTransfer(amount: amount, errorTitle: errorTitle, errorMessage: nil)
+        return ValidatedTransfer(amount: amount, errorTitle: "", errorMessage: nil)
     }
         
         

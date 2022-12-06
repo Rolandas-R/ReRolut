@@ -18,7 +18,6 @@ class TransfersViewController: UIViewController {
     @IBOutlet weak var transferToUserTextField: UITextField!
     
 
-    var passtxt: String?
     var currentUser: User!
     let transferValidator = TransferValidator()
     
@@ -26,7 +25,7 @@ class TransfersViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userGreetingAndInfoLabel.text = passtxt
+        userGreetingAndInfoLabel.text = "Hello \(currentUser.username), money amount that you have: \(currentUser.moneyAmount)"
         
         let myColor = UIColor.systemBlue
         enteringAmountTextField.layer.borderColor = myColor.cgColor
@@ -75,16 +74,13 @@ class TransfersViewController: UIViewController {
     }
 
     private func moneyTransfering(from currentUser: User, to receiver: User, amount: Int){
-        
-        let receiver = transferToUserTextField.text ?? ""
 
-        for user in UserManager.instance.users where receiver == user.username {
             currentUser.sendMoney(amount: amount)
-            user.receiveMoney(amount: amount)
+            receiver.receiveMoney(amount: amount)
             //3. informavimas
-            UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(user.username)", controller: self)
-            userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount); \nreceiver's \(user.username) money amount is: \(user.moneyAmount)")
-        }
+            UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(receiver.username)", controller: self)
+            userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount); \nreceiver's \(receiver.username) money amount is: \(receiver.moneyAmount)")
+
     }
 
     // keyboard dismissinimo f-ja
