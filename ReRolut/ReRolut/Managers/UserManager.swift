@@ -15,6 +15,10 @@ struct CreatedUser {
 
 class UserManager {
     
+    // padarome is UserManager singletona, kad nereiketu jo kurti ar/ir kaskart perdavineti keliaujant tarp Views'u;
+    // UserManager klase sukuriamas iskart startavus appsui.
+    static let instance = UserManager()
+
     var users: [User] = []
     var initialAmount: Int = 100
     

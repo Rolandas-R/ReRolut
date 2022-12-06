@@ -19,9 +19,7 @@ class TransfersViewController: UIViewController {
     
 
     var passtxt: String?
-    
-    var userManager: UserManager!
-    
+
     var currentUser: User!
     
 
@@ -50,7 +48,7 @@ class TransfersViewController: UIViewController {
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
         let userToTransfer = transferToUserTextField.text ?? ""
-        let validateUser = userManager.checkUsersList(username: userToTransfer)
+        let validateUser = UserManager.instance.checkUsersList(username: userToTransfer)
         
         checkUser(from: validateUser)
     }
@@ -97,7 +95,7 @@ class TransfersViewController: UIViewController {
             return
         }
         //2. pervedimo f-jos
-        for user in userManager.users where userToTransfer == user.username {
+        for user in UserManager.instance.users where userToTransfer == user.username {
             currentUser.sendMoney(amount: amount)
             user.receiveMoney(amount: amount)
             //3. informavimas
