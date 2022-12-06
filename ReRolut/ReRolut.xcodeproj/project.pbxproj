@@ -12,6 +12,7 @@
 		924B2DEE29323CD400C4034E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B2DED29323CD400C4034E /* User.swift */; };
 		924B2DF029323CE800C4034E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 924B2DEF29323CE800C4034E /* UserManager.swift */; };
 		924B2DF9293247DD00C4034E /* RootView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 924B2DF8293247DD00C4034E /* RootView.xib */; };
+		92720783293F65E700D9C3DC /* TransferValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92720782293F65E700D9C3DC /* TransferValidator.swift */; };
 		928089CA2932817100883083 /* UIAlertControllerPlusAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 928089C92932817100883083 /* UIAlertControllerPlusAlerts.swift */; };
 		92A84F4329313A4900EF895A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A84F4229313A4900EF895A /* AppDelegate.swift */; };
 		92A84F4529313A4900EF895A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92A84F4429313A4900EF895A /* SceneDelegate.swift */; };
@@ -26,6 +27,7 @@
 		924B2DED29323CD400C4034E /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		924B2DEF29323CE800C4034E /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		924B2DF8293247DD00C4034E /* RootView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootView.xib; sourceTree = "<group>"; };
+		92720782293F65E700D9C3DC /* TransferValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferValidator.swift; sourceTree = "<group>"; };
 		928089C92932817100883083 /* UIAlertControllerPlusAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerPlusAlerts.swift; sourceTree = "<group>"; };
 		92A84F3F29313A4900EF895A /* ReRolut.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReRolut.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92A84F4229313A4900EF895A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				924B2DEF29323CE800C4034E /* UserManager.swift */,
+				92720782293F65E700D9C3DC /* TransferValidator.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				92A84F4329313A4900EF895A /* AppDelegate.swift in Sources */,
 				92A84F4529313A4900EF895A /* SceneDelegate.swift in Sources */,
 				924B2DEE29323CD400C4034E /* User.swift in Sources */,
+				92720783293F65E700D9C3DC /* TransferValidator.swift in Sources */,
 				928089CA2932817100883083 /* UIAlertControllerPlusAlerts.swift in Sources */,
 				924B2DEB29323AA500C4034E /* TransfersViewController.swift in Sources */,
 			);

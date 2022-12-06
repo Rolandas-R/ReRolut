@@ -17,10 +17,15 @@ class TransfersViewController: UIViewController {
     
     @IBOutlet weak var transferToUserTextField: UITextField!
     
+    
+    
 
     var passtxt: String?
 
     var currentUser: User!
+    
+    let transferValidator = TransferValidator()
+    
     
 
     override func viewDidLoad() {
@@ -35,6 +40,9 @@ class TransfersViewController: UIViewController {
         
         self.navigationController?.isNavigationBarHidden = true
         
+
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -47,24 +55,31 @@ class TransfersViewController: UIViewController {
     }
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
-        let userToTransfer = transferToUserTextField.text ?? ""
-        let validateUser = UserManager.instance.checkUsersList(username: userToTransfer)
+       
+        let result = transferValidator.transferMoney(
+            sender: currentUser.username,
+            receiver: transferToUserTextField.text ?? "",
+            amount: Int(enteringAmountTextField.text!) ?? 0 )
         
-        checkUser(from: validateUser)
+        checkUser(from: result)
     }
      
 // funkcija patikrina ar toks useris kuriam bus pervedama egzistuoja
-    private func checkUser(from validatedUser: CreatedUser) {
-        let amount: Int = Int(enteringAmountTextField.text!) ?? 0
+    private func checkUser(from result: ValidatedTransfer) {
+      
+        let receiver = transferToUserTextField.text ?? ""
+        let transferAmount = Int(enteringAmountTextField.text!) ?? 0
         
-        if let errorTitle = validatedUser.errorTitle,
-           let mistakeDescription = validatedUser.mistakeDescription {
-            UIAlertController.showErrorAlert(title: errorTitle, message: mistakeDescription, controller: self)
+ 
+        
+        if let errorTitle = result.errorTitle,
+           let errorMessage = result.errorMessage {
+            UIAlertController.showErrorAlert(title: errorTitle, message: errorMessage, controller: self)
         } else {
             
        /* kai is UserManager klases gaunamas useris, showErrorAlert'as nerodomas ir paleidziama moneyTransfering funkcija */
-            if validatedUser.user != nil {
-                moneyTransfering(from: currentUser, to: validatedUser.user!, amount: amount)
+            if result.amount != nil {
+                moneyTransfering(from: currentUser, to: receiver, amount: transferAmount)
             }
         }
     }
@@ -79,23 +94,23 @@ class TransfersViewController: UIViewController {
     2. jei visos salygos tenkinamos, textfielde nurodytam useriui pervedamas nurodyta suma.
     3. po pervedimo, isvedama informacija showErrorAlert'e currentUseriui, kad jo nurodyta suma pervesta nurodytam useriui. Taip pat textLabelyje atvaizduojama tiek siuntejo (currentUser), tiek ir gavejo turimi pinigai (moneyAmount) po operacijos.
  */
-    private func moneyTransfering(from currentUser: User, to userToTransfer: User, amount: Int){
-        let userToTransfer = transferToUserTextField.text ?? ""
-        
-        // 1. tikrinimas
-        if enteringAmountTextField.text == "" {
-            UIAlertController.showErrorAlert(title: "Transfer Error", message: "Enter amount to transfer", controller: self)
-            
-        } else if userToTransfer == currentUser.username {
-            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer to yourself", controller: self)
-            return
-            
-        } else if amount <= 0 || amount > currentUser.moneyAmount {
-            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer 0 or less, \nor amount that exeeds what you have", controller: self)
-            return
-        }
-        //2. pervedimo f-jos
-        for user in UserManager.instance.users where userToTransfer == user.username {
+    private func moneyTransfering(from currentUser: User, to receiver: String, amount: Int){
+        let receiver = transferToUserTextField.text ?? ""
+//
+//        // 1. tikrinimas
+//        if enteringAmountTextField.text == "" {
+//            UIAlertController.showErrorAlert(title: "Transfer Error", message: "Enter amount to transfer", controller: self)
+//
+//        } else if userToTransfer == currentUser.username {
+//            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer to yourself", controller: self)
+//            return
+//
+//        } else if amount <= 0 || amount > currentUser.moneyAmount {
+//            UIAlertController.showErrorAlert(title: "Transfer Error", message: "You can't transfer 0 or less, \nor amount that exeeds what you have", controller: self)
+//            return
+//        }
+//        //2. pervedimo f-jos
+        for user in UserManager.instance.users where receiver == user.username {
             currentUser.sendMoney(amount: amount)
             user.receiveMoney(amount: amount)
             //3. informavimas
