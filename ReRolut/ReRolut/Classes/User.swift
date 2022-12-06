@@ -7,10 +7,13 @@
 
 import Foundation
 
-class User{
+
+
+class User {
     let username: String
     let password: String
     var moneyAmount: Int
+    
     
     init(username: String, password: String, moneyAmount: Int) {
         self.username = username
@@ -28,6 +31,10 @@ class User{
     func receiveMoney(amount: Int){
         self.moneyAmount += amount
     }
+    
+
+    
+    
 }
 
 

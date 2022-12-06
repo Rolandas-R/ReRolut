@@ -20,12 +20,13 @@ class TransfersViewController: UIViewController {
 
     var currentUser: User!
     let transferValidator = TransferValidator()
-    
-    
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         userGreetingAndInfoLabel.text = "Hello \(currentUser.username), money amount that you have: \(currentUser.moneyAmount)"
+        
         
         let myColor = UIColor.systemBlue
         enteringAmountTextField.layer.borderColor = myColor.cgColor
@@ -74,14 +75,18 @@ class TransfersViewController: UIViewController {
     }
 
     private func moneyTransfering(from currentUser: User, to receiver: User, amount: Int){
+        
+        let transfer = Transfer(sender: currentUser.username, receiver: receiver.username, moneyAmount: Int(enteringAmountTextField.text!)!)
 
             currentUser.sendMoney(amount: amount)
             receiver.receiveMoney(amount: amount)
+        transfer.transferHistorija(sender: currentUser.username, receiver: receiver.username, amount: currentUser.moneyAmount)
             //3. informavimas
             UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(receiver.username)", controller: self)
             userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount); \nreceiver's \(receiver.username) money amount is: \(receiver.moneyAmount)")
 
     }
+
 
     // keyboard dismissinimo f-ja
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

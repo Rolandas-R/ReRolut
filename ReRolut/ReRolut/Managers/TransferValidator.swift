@@ -16,9 +16,12 @@ struct ValidatedTransfer{
 
 class TransferValidator {
     
-    let sender: String? = ""
-    let receiver: String? = ""
+    static let instance = TransferValidator()
+    
+    var sender: String? = ""
+    var receiver: String? = ""
     var moneyAmount: Int?
+    
     
     
     func transferMoney(sender: String, receiver: String, amount: Int) -> ValidatedTransfer {
@@ -50,5 +53,5 @@ class TransferValidator {
         
         
         
-    }
+}
  
