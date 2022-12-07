@@ -20,8 +20,9 @@ class TransferValidator {
     
     var sender: String? = ""
     var receiver: String? = ""
-    var moneyAmount: Int?
+    var moneyAmount: Int? 
     
+    var transfers: [Transfer] = []
     
     
     func transferMoney(sender: String, receiver: String, amount: Int) -> ValidatedTransfer {
@@ -48,8 +49,14 @@ class TransferValidator {
             return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You don't have enough money")
         }
         
+        let transfer = Transfer(sender: sender, receiver: receiver, moneyAmount: amount)
+        transfers.append(transfer)
+        dump(transfers)
+        
         return ValidatedTransfer(amount: amount, errorTitle: "", errorMessage: nil)
     }
+    
+
         
         
         
