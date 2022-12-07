@@ -100,11 +100,6 @@
                         <action selector="logOutButtonTapped:" destination="-1" eventType="touchUpInside" id="VW1-Sd-whs"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ctR-qj-UIe">
-                    <rect key="frame" x="120" y="601.66666666666663" width="153" height="35"/>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" title="Transfer History"/>
-                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -119,13 +114,11 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jLs-e3-xcQ" secondAttribute="trailing" constant="15" id="Jgo-hE-fOL"/>
                 <constraint firstItem="X22-dh-P1k" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="KuW-at-CDM"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Gcb-ce-Mja" secondAttribute="trailing" constant="20" id="LCz-Bk-Rfb"/>
-                <constraint firstItem="ctR-qj-UIe" firstAttribute="top" secondItem="igp-s0-MJ2" secondAttribute="bottom" constant="10" id="MH6-io-S7I"/>
                 <constraint firstItem="0cY-gG-aDp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="NOo-EC-I6z"/>
                 <constraint firstItem="Ave-cI-qX1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="OJA-fc-FlI"/>
                 <constraint firstItem="evg-fq-tk9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="Ppu-QM-cuj"/>
                 <constraint firstItem="evg-fq-tk9" firstAttribute="centerY" secondItem="0cY-gG-aDp" secondAttribute="centerY" id="Qyj-9b-zpx"/>
                 <constraint firstItem="igp-s0-MJ2" firstAttribute="top" secondItem="pFB-h4-EhY" secondAttribute="bottom" constant="30" id="Ro3-eJ-vUl"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ctR-qj-UIe" secondAttribute="trailing" constant="120" id="Tpa-ca-D3C"/>
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="centerY" secondItem="jLs-e3-xcQ" secondAttribute="centerY" constant="-2" id="W04-MR-3qc"/>
                 <constraint firstItem="igp-s0-MJ2" firstAttribute="centerX" secondItem="pFB-h4-EhY" secondAttribute="centerX" id="WBB-UK-rZj"/>
                 <constraint firstItem="Gcb-ce-Mja" firstAttribute="top" secondItem="X22-dh-P1k" secondAttribute="bottom" constant="5" id="egd-ap-Ge7"/>
@@ -133,7 +126,6 @@
                 <constraint firstItem="Ave-cI-qX1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="140" id="jJy-21-8HI"/>
                 <constraint firstItem="kjE-W0-KIG" firstAttribute="top" secondItem="evg-fq-tk9" secondAttribute="bottom" constant="8" id="oqj-ps-sFz"/>
                 <constraint firstItem="jLs-e3-xcQ" firstAttribute="top" secondItem="0cY-gG-aDp" secondAttribute="bottom" constant="30" id="p0F-nz-cv8"/>
-                <constraint firstItem="ctR-qj-UIe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="120" id="sTm-IR-K5D"/>
                 <constraint firstItem="Gcb-ce-Mja" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="uVg-V6-Qem"/>
                 <constraint firstItem="0cY-gG-aDp" firstAttribute="top" secondItem="Gcb-ce-Mja" secondAttribute="bottom" constant="20" id="uXf-5r-bem"/>
                 <constraint firstItem="pFB-h4-EhY" firstAttribute="top" secondItem="jLs-e3-xcQ" secondAttribute="bottom" constant="20" id="xOO-rz-XZu"/>

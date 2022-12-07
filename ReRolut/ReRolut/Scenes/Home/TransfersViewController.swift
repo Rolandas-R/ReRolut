@@ -19,10 +19,8 @@ class TransfersViewController: UIViewController {
     
 
     var currentUser: User!
-    let transferValidator = TransferValidator()
-
-
-
+    var transfer: Transfer!
+//    let transferValidator = TransferValidator!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +33,14 @@ class TransfersViewController: UIViewController {
         enteringAmountTextField.layer.borderWidth = 2.0
         transferToUserTextField.layer.borderWidth = 2.0
         
-        self.navigationController?.isNavigationBarHidden = true
+//        self.navigationController?.navigationItem.setHidesBackButton(true, animated:false)
+        let rightButton = UIBarButtonItem(title: "Transfer History", style: .done, target: self, action: #selector(transferHistoryButtonTapped(_:)))
+        
+        self.navigationItem.rightBarButtonItems = [rightButton]
+        self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
+        
+        self.navigationController?.isNavigationBarHidden = false
 
     }
     
@@ -51,7 +56,7 @@ class TransfersViewController: UIViewController {
         let userToTransfer = UserManager.instance.checkUsersList(
             username: transferToUserTextField.text ?? "")
         
-        let moneyResult = transferValidator.transferMoney(
+        let moneyResult = TransferValidator.instance.transferMoney(
             sender: currentUser.username,
             receiver: transferToUserTextField.text ?? "",
             amount: Int(enteringAmountTextField.text!) ?? 0 )
@@ -75,19 +80,49 @@ class TransfersViewController: UIViewController {
         }
     }
 
-    private func moneyTransfering(from currentUser: User, to receiver: User, amount: Int){
-        
-//        let histMesage = TransferValidator.instance.transfers
+    private func moneyTransfering(from currentUser: User, to receiver: User, amount: Int) {
+
             currentUser.sendMoney(amount: amount)
             receiver.receiveMoney(amount: amount)
 
-            //3. informavimas
             UIAlertController.showErrorAlert(title: "Transfer Complete", message: "Success! \n\(currentUser.username), you transfered \(amount) to \(receiver.username)", controller: self)
             userGreetingAndInfoLabel.text! = ("sender's \(currentUser.username) money amount left: \(currentUser.moneyAmount); \nreceiver's \(receiver.username) money amount is: \(receiver.moneyAmount)")
 
+
     }
+    
+//    func printTransactionHistory() {
+//        var trasactionContent = [String]()
+//
+//        for transaction in transfer. {
+//            let content = """
+//            Sender: \(transfer.sender)
+//
+//            Receiver: \(transfer.receiver)
+//
+//            Amount: \(transfer.transferedAmount)
+//            """
+//
+//            trasactionContent.append(content)
+//
+//        }
+//        print(trasactionContent)
+//
+//
+//    }
 
+    @IBAction func transferHistoryButtonTapped(_ sender: UIBarButtonItem) {
+        
+        let result = TransferValidator.instance.transfers
+        
+        for transfer in result {
+            dump(transfer)
+        }
+//        printTransactionHistory()
+        print("count: \(result.count)")
 
+    }
+    
     // keyboard dismissinimo f-ja
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

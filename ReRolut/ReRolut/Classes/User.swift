@@ -24,11 +24,11 @@ class User {
   
     // MARK: --  pervedimu funkcijos
     
-    func sendMoney(amount: Int){
+    func sendMoney(amount: Int) {
         self.moneyAmount -= amount
     }
     
-    func receiveMoney(amount: Int){
+    func receiveMoney(amount: Int) {
         self.moneyAmount += amount
     }
     

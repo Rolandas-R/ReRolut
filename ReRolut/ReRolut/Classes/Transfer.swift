@@ -8,16 +8,20 @@
 import Foundation
 
 class Transfer {
+
    
-    let sender: String
-    let receiver: String
-    var moneyAmount: Int
+    var sender: String
+    var receiver: String
+    var transferedAmount: Int
     
-    init(sender: String, receiver: String, moneyAmount: Int) {
+    init(sender: String, receiver: String, transferedAmount: Int) {
         self.sender = sender
         self.receiver = receiver
-        self.moneyAmount = moneyAmount
+        self.transferedAmount = transferedAmount
     }
+    
+
+
 
 
 }
