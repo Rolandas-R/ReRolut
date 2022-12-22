@@ -16,13 +16,13 @@ struct ValidatedTransfer{
 
 class TransferValidator {
     
-    static let instance = TransferValidator()
+//    static let instance = TransferValidator()
 
     
-    var transfers: [Transfer] = []
+    static var transfers: [Transfer] = []
     
     
-    func transferMoney(sender: String, receiver: String, amount: Int) -> ValidatedTransfer {
+    static func transferMoney(sender: String, receiver: String, amount: Int) -> ValidatedTransfer {
         let errorTitle = "Error in Transfer Validation"
         
         // ar netusti laukai
@@ -41,7 +41,7 @@ class TransferValidator {
         }
         
         // ar useris turi tiek kiek nori pervesti
-        let user = UserManager.instance.users.first(where: { $0.username == sender })
+        let user = UserManager.users.first(where: { $0.username == sender })
         if (user?.moneyAmount)! < amount {
             return ValidatedTransfer(amount: nil, errorTitle: errorTitle, errorMessage: "You don't have enough money")
         }

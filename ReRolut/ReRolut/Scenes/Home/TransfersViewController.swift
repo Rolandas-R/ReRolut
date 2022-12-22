@@ -19,7 +19,7 @@ class TransfersViewController: UIViewController {
     
 
     var currentUser: User!
-    var transfer: Transfer!
+//    var transfer: Transfer!
 //    let transferValidator = TransferValidator!
     
     override func viewDidLoad() {
@@ -53,10 +53,10 @@ class TransfersViewController: UIViewController {
     
     @IBAction private func transferButtonTapped(_ sender: Any) {
         
-        let userToTransfer = UserManager.instance.checkUsersList(
+        let userToTransfer = UserManager.checkUsersList(
             username: transferToUserTextField.text ?? "")
         
-        let moneyResult = TransferValidator.instance.transferMoney(
+        let moneyResult = TransferValidator.transferMoney(
             sender: currentUser.username,
             receiver: transferToUserTextField.text ?? "",
             amount: Int(enteringAmountTextField.text!) ?? 0 )
@@ -113,7 +113,7 @@ class TransfersViewController: UIViewController {
 
     @IBAction func transferHistoryButtonTapped(_ sender: UIBarButtonItem) {
         
-        let result = TransferValidator.instance.transfers
+        let result = TransferValidator.transfers
         
         for transfer in result {
             dump(transfer)

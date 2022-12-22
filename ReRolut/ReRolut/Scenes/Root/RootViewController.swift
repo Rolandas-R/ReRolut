@@ -77,12 +77,12 @@ class RootViewController: UIViewController {
         switch currentSegment {
             
         case .register:
-            let initialResult = UserManager.instance.register(username: enterUsernameTextField.text ?? "",
+            let initialResult = UserManager.register(username: enterUsernameTextField.text ?? "",
                                                      password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
             
         case .login:
-            let initialResult = UserManager.instance.login(username: enterUsernameTextField.text ?? "",
+            let initialResult = UserManager.login(username: enterUsernameTextField.text ?? "",
                                                   password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
         }
