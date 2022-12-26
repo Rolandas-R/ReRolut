@@ -19,8 +19,12 @@ class TransfersViewController: UIViewController {
     
 
     var currentUser: User!
-//    var transfer: Transfer!
-//    let transferValidator = TransferValidator!
+    
+/* Kadangi pakeiciau kintamuosius ir f-jas i static, tai man nereikia deklaruoti ir kurti transfer ir transferValidator instance'u:
+ //    var transfer: Transfer!
+ //    let transferValidator = TransferValidator!
+ */
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

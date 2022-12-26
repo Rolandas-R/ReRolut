@@ -18,6 +18,8 @@ class UserManager {
     // padarome is UserManager singletona, kad nereiketu jo kurti ar/ir kaskart perdavineti keliaujant tarp Views'u;
     // UserManager klase sukuriamas iskart startavus appsui.
 //    static let instance = UserManager()
+    
+    // kai kintamuosius ir f-jas padarome static jos egzistuoja visa appso egzistavimo perioda ir prieiname is visur, nereikia kurti instance'u
 
     static var users: [User] = []
     static var initialAmount: Int = 100
