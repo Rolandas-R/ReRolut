@@ -15,12 +15,18 @@ struct CreatedUser {
 
 class UserManager {
     
-    var users: [User] = []
-    var initialAmount: Int = 100
+    // padarome is UserManager singletona, kad nereiketu jo kurti ar/ir kaskart perdavineti keliaujant tarp Views'u;
+    // UserManager klase sukuriamas iskart startavus appsui.
+//    static let instance = UserManager()
+    
+    // kai kintamuosius ir f-jas padarome static jos egzistuoja visa appso egzistavimo perioda ir prieiname is visur, nereikia kurti instance'u
+
+    static var users: [User] = []
+    static var initialAmount: Int = 100
     
 
     // vartotojo registravimo f- ja. grazina CreatedUser struct'a (veliau keliauja i RootViewController)
-    func register(username: String, password: String) -> CreatedUser {
+    static func register(username: String, password: String) -> CreatedUser {
         let registerErrorTitle = "Error in user creation process"
         
         // guardas padeda patikrinti ar ivestas slaptazodis ir passwordas i tekstini lauka,
@@ -33,26 +39,26 @@ class UserManager {
         
         // antras guardas, kurio pagalba uztikriname kad username ir passwordas turetu bent 8 simbolius:
 
-        guard username.count > 7, password.count > 7
+        guard username.count > 1, password.count > 1
                 
         else {
             return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "Username and/or password must be at least 8 characters long")
         }
         
         // pereinama ir patikrinamas useriu sarasas
-        for user in users {
+        for user in UserManager.users {
             if username == user.username {
                 return CreatedUser(user: nil, errorTitle: registerErrorTitle, mistakeDescription: "User with same username already exists")
             }
         }
         
         // jei viskas tvarkoje sukuriamas naujas objektas user ir pridedamas prie users array'iaus
-        let user = User(username: username, password: password, moneyAmount: initialAmount)
+        let user = User(username: username, password: password, moneyAmount: UserManager.initialAmount)
         
-        users.append(user)
+        UserManager.users.append(user)
         
         // pasitikrinimas sau - i konsole isvedami visi array [users] esantys useriai
-         dump(users)
+        dump(UserManager.users)
         
         // perduodama CreatedUser structui
         return CreatedUser(user: user, errorTitle: registerErrorTitle, mistakeDescription: nil)
@@ -62,9 +68,9 @@ class UserManager {
     // vartotojo loginimo f-ja kur tikrinama ar toks vartotojas yra ir ar pateikti visi duomenys sutampa (RootViewController)
     // tikrinimas su closure
     
-    func login(username: String, password: String) -> CreatedUser {
+    static func login(username: String, password: String) -> CreatedUser {
         let loginErrorTitle = "Error while loging in"
-        let checkedUser = users.first(where: { $0.username == username })
+        let checkedUser = UserManager.users.first(where: { $0.username == username })
         
         // sitas guardas patikrina ir toliau praleidzia (arba ne), atsizvelgiant ar sutampa pateikti userio duomenys
         guard let user = checkedUser
@@ -81,7 +87,7 @@ class UserManager {
     }
     
     // Funkcija, kuri paziuri ar tarp useriu yra toks, kuriam norima pervesti pinigus (TransfersViewController)
-    func checkUsersList(username: String) -> CreatedUser {
+    static func checkUsersList(username: String) -> CreatedUser {
         let userCheckingErrorTitle = "Error with user validation"
         
         guard !username.isEmpty
@@ -89,7 +95,7 @@ class UserManager {
             return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "Fill the user you want to transfer")
         }
         
-        guard let user = users.first(where: { $0.username == username })
+        guard let user = UserManager.users.first(where: { $0.username == username })
         else {
             return CreatedUser(user: nil, errorTitle: userCheckingErrorTitle, mistakeDescription: "No such user with this username")
         }

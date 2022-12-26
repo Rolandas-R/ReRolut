@@ -28,7 +28,7 @@ class RootViewController: UIViewController {
     
 
     var currentSegment: Segment = .register
-    var userManager = UserManager()
+
     
 
     override func viewDidLoad() {
@@ -77,12 +77,12 @@ class RootViewController: UIViewController {
         switch currentSegment {
             
         case .register:
-            let initialResult = userManager.register(username: enterUsernameTextField.text ?? "",
+            let initialResult = UserManager.register(username: enterUsernameTextField.text ?? "",
                                                      password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
             
         case .login:
-            let initialResult = userManager.login(username: enterUsernameTextField.text ?? "",
+            let initialResult = UserManager.login(username: enterUsernameTextField.text ?? "",
                                                   password: enterPasswordTextField.text ?? "")
             checkUser(from: initialResult)
         }
@@ -97,9 +97,6 @@ class RootViewController: UIViewController {
                 // navigation viewControleris ir perejimas i kita VC
                 let transfersViewController = TransfersViewController()
                 transfersViewController.currentUser = createdUser.user
-                transfersViewController.passtxt = "Hello \(createdUser.user!.username), money amount that you have: \(createdUser.user!.moneyAmount)"
-                transfersViewController.userManager = self.userManager
-    
                 navigationController?.pushViewController(transfersViewController, animated: true)
             }
         }
